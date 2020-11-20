@@ -23,7 +23,6 @@ public class BoardController {
         modelAndView.setViewName("board/list");
 
         List<BoardDto> boardList = boardService.getBoardlist();
-        System.out.println("boardList" + boardList);
 
         modelAndView.addObject("boardList",boardList);
 
@@ -73,7 +72,7 @@ public class BoardController {
     @PostMapping("/post/edit/{no}")
     public ModelAndView update(BoardDto boardDTO) {
         ModelAndView modelAndView = new ModelAndView();
-        boardService.savePost(boardDTO);
+        boardService.updatePost(boardDTO);
         modelAndView.setViewName("redirect:/list");
         return modelAndView;
     }

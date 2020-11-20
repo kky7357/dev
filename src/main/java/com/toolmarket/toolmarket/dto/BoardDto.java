@@ -1,6 +1,5 @@
 package com.toolmarket.toolmarket.dto;
 
-import com.toolmarket.toolmarket.domain.entity.BoardEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -16,16 +15,6 @@ public class BoardDto {
     private String content;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
-
-    public BoardEntity toEntity(){
-        BoardEntity boardEntity = BoardEntity.builder()
-                .id(id)
-                .writer(writer)
-                .title(title)
-                .content(content)
-                .build();
-        return boardEntity;
-    }
 
     @Builder
     public BoardDto(Long id, String title, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {

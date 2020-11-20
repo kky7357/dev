@@ -1,33 +1,30 @@
 package com.toolmarket.toolmarket.service;
 
-import com.toolmarket.toolmarket.domain.entity.BoardEntity;
-import com.toolmarket.toolmarket.domain.repository.BoardRepository;
 import com.toolmarket.toolmarket.dto.BoardDto;
+import com.toolmarket.toolmarket.mapper.BoardMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
 public class BoardService {
-    private BoardRepository boardRepository;
+    private BoardMapper boardMapper;
 
     @Transactional
     public List<BoardDto> getBoardlist() {
-        List<BoardEntity> boardEntities = boardRepository.findAll();
+        List<BoardDto> boardDtos = boardMapper.selectAll();
         List<BoardDto> boardDtoList = new ArrayList<>();
-        System.out.println("boardEntities" + boardEntities);
-        for ( BoardEntity boardEntity : boardEntities) {
+        for ( BoardDto boardDto : boardDtos) {
             BoardDto boardDTO = BoardDto.builder()
-                    .id(boardEntity.getId())
-                    .title(boardEntity.getTitle())
-                    .content(boardEntity.getContent())
-                    .writer(boardEntity.getWriter())
-                    .createdDate(boardEntity.getCreatedDate())
+                    .id(boardDto.getId())
+                    .title(boardDto.getTitle())
+                    .content(boardDto.getContent())
+                    .writer(boardDto.getWriter())
+                    .createdDate(boardDto.getCreatedDate())
                     .build();
 
             boardDtoList.add(boardDTO);
@@ -35,30 +32,24 @@ public class BoardService {
         return boardDtoList;
     }
 
-
     @Transactional
-    public Long savePost(BoardDto boardDto) {
-        return boardRepository.save(boardDto.toEntity()).getId();
+    public void savePost(BoardDto boardDto) {
+        boardMapper.insertBoard(boardDto);
     }
 
     @Transactional
+    public void updatePost(BoardDto boardDto) {
+        boardMapper.updateById(boardDto);
+    }
+    @Transactional
     public BoardDto getPost(Long id) {
-        Optional<BoardEntity> boardEntityWrapper = boardRepository.findById(id);
-        BoardEntity boardEntity = boardEntityWrapper.get();
-
-        BoardDto boardDTO = BoardDto.builder()
-                .id(boardEntity.getId())
-                .title(boardEntity.getTitle())
-                .content(boardEntity.getContent())
-                .writer(boardEntity.getWriter())
-                .createdDate(boardEntity.getCreatedDate())
-                .build();
-
-        return boardDTO;
+        BoardDto boardDto = boardMapper.selectById(id);
+        return boardDto;
     }
 
     @Transactional
     public void deletePost(Long id) {
-        boardRepository.deleteById(id);
+        boardMapper.deleteById(id);
     }
+
 }
