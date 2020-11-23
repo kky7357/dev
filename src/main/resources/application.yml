@@ -32,7 +32,7 @@ logging:
               BasicBinder: TRACE
 
 server:
-  port: 80
+  port: 8080
   compression:
     enabled: true
 
