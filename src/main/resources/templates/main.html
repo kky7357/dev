@@ -1,17 +1,203 @@
+<!--    <a th:href="@{/list}">리스트_test3</a>-->
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>제목</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Toolmarket Test</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" th:href="@{site.webmanifest}">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{assets/img/favicon.ico}">
 
+    <!-- CSS here -->
+
+    <link rel="stylesheet" th:href="@{assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/slicknav.css}">
+    <link rel="stylesheet" th:href="@{assets/css/animate.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{assets/css/fontawesome-all.min.css}">
+    <link rel="stylesheet" th:href="@{assets/css/themify-icons.css}">
+    <link rel="stylesheet" th:href="@{assets/css/slick.css}">
+    <link rel="stylesheet" th:href="@{assets/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
 </head>
+
 <body>
+<!-- Preloader Start -->
+<div id="preloader-active">
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+            <div class="preloader-circle"></div>
+            <div class="preloader-img pere-text">
+                <img th:src="@{assets/img/logo/loder-logo.png}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Preloader Start -->
+<header>
     <div th:insert="common/header" id="header"></div>
+</header>
 
-    <h1>main</h1>
-    <a th:href="@{/list}">리스트_test3</a>
-    
+<main>
+    <!-- slider Area Start-->
+    <!--최상위이미지-->
+    <div class="slider-area ">
+        <div class="slider-active">
+            <div class="single-slider  hero-overly slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-11">
+                            <div class="hero__caption">
+                                <div class="hero-text1">
+                                    <span data-animation="fadeInUp" data-delay=".3s">간략한 회사소개</span>
+                                </div>
+                                <h1 data-animation="fadeInUp" data-delay=".5s">회사명</h1>
+                                <div class="stock-text" data-animation="fadeInUp" data-delay=".8s">
+                                    <h2>회사명</h2>
+                                    <h2>회사명</h2>
+                                </div>
+                                <div class="hero-text2 mt-110" data-animation="fadeInUp" data-delay=".9s">
+                                    <span><a th:href="services">제품소개</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            <div class="single-slider  hero-overly slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-11">-->
+<!--                            <div class="hero__caption">-->
+<!--                                <div class="hero-text1">-->
+<!--                                    <span data-animation="fadeInUp" data-delay=".3s">간략한 회사소개</span>-->
+<!--                                </div>-->
+<!--                                <h1 data-animation="fadeInUp" data-delay=".5s">advanced</h1>-->
+<!--                                <div class="stock-text" data-animation="fadeInUp" data-delay=".8s">-->
+<!--                                    <h2>Construction</h2>-->
+<!--                                    <h2>Construction</h2>-->
+<!--                                </div>-->
+<!--                                <div class="hero-text2 mt-110" data-animation="fadeInUp" data-delay=".9s">-->
+<!--                                    <span><a href="services.html">Our Services</a></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <!-- slider Area End-->
 
-    <div th:insert="common/footer" id="footer"></div>
+    <!--latest Nnews Area start -->
+    <div class="latest-news-area section-padding30">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle section-tittle7 mb-50">
+                        <div class="front-text">
+                            <h2 class="">latest news</h2>
+                        </div>
+                        <span class="back-text">Our Blog</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <!-- single-news -->
+                    <div class="single-news mb-30">
+                        <div class="news-img">
+                            <img src="assets/img/david/david_1.png" alt="">
+                            <div class="news-date text-center">
+                                <span>24</span>
+                                <p>Now</p>
+                            </div>
+                        </div>
+                        <div class="news-caption">
+                            <ul class="david-info">
+                                <li> | &nbsp; &nbsp;  Porperties</li>
+                            </ul>
+                            <h2><a href="single-blog.html">Footprints in Time is perfect
+                                House in Kurashiki</a></h2>
+                            <a href="single-blog.html" class="d-btn">Read more »</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <!-- single-news -->
+                    <div class="single-news mb-30">
+                        <div class="news-img">
+                            <img src="assets/img/david/david_2.png" alt="">
+                            <div class="news-date text-center">
+                                <span>24</span>
+                                <p>Now</p>
+                            </div>
+                        </div>
+                        <div class="news-caption">
+                            <ul class="david-info">
+                                <li> | &nbsp; &nbsp;  Porperties</li>
+                            </ul>
+                            <h2><a href="single-blog.html">Footprints in Time is perfect
+                                House in Kurashiki</a></h2>
+                            <a href="single-blog.html" class="d-btn">Read more » </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--latest News Area End -->
+
+</main>
+<footer>
+    <div th:insert="@{common/footer}" id="footer"></div>
+</footer>
+
+<!-- JS here -->
+
+<!-- All JS Custom Plugins Link Here here -->
+<script th:src="@{assets/js/vendor/modernizr-3.5.0.min.js}"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script th:src="@{assets/js/vendor/jquery-1.12.4.min.js}"></script>
+<script th:src="@{assets/js/popper.min.js}"></script>
+<script th:src="@{assets/js/bootstrap.min.js}"></script>
+<!-- Jquery Mobile Menu -->
+<script th:src="@{assets/js/jquery.slicknav.min.js}"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script th:src="@{assets/js/owl.carousel.min.js}"></script>
+<script th:src="@{assets/js/slick.min.js}"></script>
+<!-- Date Picker -->
+<script th:src="@{assets/js/gijgo.min.js}"></script>
+<!-- One Page, Animated-HeadLin -->
+<script th:src="@{assets/js/wow.min.js}"></script>
+<script th:src="@{assets/js/animated.headline.js}"></script>
+<script th:src="@{assets/js/jquery.magnific-popup.js}"></script>
+
+<!-- Scrollup, nice-select, sticky -->
+<script th:src="@{assets/js/jquery.scrollUp.min.js}"></script>
+<script th:src="@{assets/js/jquery.nice-select.min.js}"></script>
+<script th:src="@{assets/js/jquery.sticky.js}"></script>
+
+<!-- counter , waypoint -->
+<script th:src="@{assets/js/waypoints.min.js}"></script>
+<script th:src="@{assets/js/jquery.counterup.min.js}"></script>
+
+<!-- contact js -->
+<script th:src="@{assets/js/contact.js}"></script>
+<script th:src="@{assets/js/jquery.form.js}"></script>
+<script th:src="@{assets/js/jquery.validate.min.js}"></script>
+<script th:src="@{assets/js/mail-script.js}"></script>
+<script th:src="@{assets/js/jquery.ajaxchimp.min.js}"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script th:src="@{assets/js/plugins.js}"></script>
+<script th:src="@{assets/js/main.js}"></script>
+
 </body>
 </html>

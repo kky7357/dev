@@ -31,10 +31,10 @@ logging:
             sql:
               BasicBinder: TRACE
 
-server:
-  port: 8080
-  compression:
-    enabled: true
+#server:
+#  port: 80
+#  compression:
+#    enabled: true
 
 
 

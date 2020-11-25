@@ -16,7 +16,7 @@ public class BoardController {
     private BoardService boardService;
 
     //리스트
-    @GetMapping("/list")
+    @GetMapping("/board/list")
     public ModelAndView list() {
 
         ModelAndView modelAndView = new ModelAndView();

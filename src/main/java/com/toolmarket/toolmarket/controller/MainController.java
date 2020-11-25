@@ -17,4 +17,21 @@ public class MainController {
 
         return modelAndView;
     }
+
+    @GetMapping("/about")
+    public ModelAndView about() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("pages/about");
+
+        return modelAndView;
+    }
+
+    @GetMapping("/product")
+    public ModelAndView product() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("pages/product");
+
+        return modelAndView;
+    }
+
 }
