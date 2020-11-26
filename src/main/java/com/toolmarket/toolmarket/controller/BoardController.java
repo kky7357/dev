@@ -16,11 +16,11 @@ public class BoardController {
     private BoardService boardService;
 
     //리스트
-    @GetMapping("/board/list")
+    @GetMapping("/boardList")
     public ModelAndView list() {
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("board/list");
+        modelAndView.setViewName("board/BoardList");
 
         List<BoardDto> boardList = boardService.getBoardlist();
 

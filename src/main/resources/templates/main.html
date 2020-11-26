@@ -1,5 +1,3 @@
-<!--    <a th:href="@{/list}">리스트_test3</a>-->
-
 <!DOCTYPE html>
 <html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -53,15 +51,15 @@
                         <div class="col-lg-11">
                             <div class="hero__caption">
                                 <div class="hero-text1">
-                                    <span data-animation="fadeInUp" data-delay=".3s">간략한 회사소개</span>
+                                    <span data-animation="fadeInUp" data-delay=".3s">Hydraulic Equipment</span>
                                 </div>
-                                <h1 data-animation="fadeInUp" data-delay=".5s">회사명</h1>
+                                <h1 data-animation="fadeInUp" data-delay=".5s">Company</h1>
                                 <div class="stock-text" data-animation="fadeInUp" data-delay=".8s">
-                                    <h2>회사명</h2>
-                                    <h2>회사명</h2>
+                                    <h2>company</h2>
+                                    <h2>company</h2>
                                 </div>
                                 <div class="hero-text2 mt-110" data-animation="fadeInUp" data-delay=".9s">
-                                    <span><a th:href="services">제품소개</a></span>
+                                    <span><a th:href="prodList">About Product</a></span>
                                 </div>
                             </div>
                         </div>
@@ -101,9 +99,9 @@
                     <!-- Section Tittle -->
                     <div class="section-tittle section-tittle7 mb-50">
                         <div class="front-text">
-                            <h2 class="">latest news</h2>
+                            <h2 class="">New Arrival</h2>
                         </div>
-                        <span class="back-text">Our Blog</span>
+<!--                        <span class="back-text">Our Blog</span>-->
                     </div>
                 </div>
             </div>
@@ -124,7 +122,7 @@
                             </ul>
                             <h2><a href="single-blog.html">Footprints in Time is perfect
                                 House in Kurashiki</a></h2>
-                            <a href="single-blog.html" class="d-btn">Read more »</a>
+                            <a href="prodList" class="d-btn">Read more »</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +142,7 @@
                             </ul>
                             <h2><a href="single-blog.html">Footprints in Time is perfect
                                 House in Kurashiki</a></h2>
-                            <a href="single-blog.html" class="d-btn">Read more » </a>
+                            <a href="prodList" class="d-btn">Read more » </a>
                         </div>
                     </div>
                 </div>
@@ -152,7 +150,443 @@
         </div>
     </div>
     <!--latest News Area End -->
-
+<!-- Project Area Start -->
+<section class="project-area  section-padding30">
+    <div class="container">
+       <div class="project-heading mb-35">
+            <div class="row align-items-end">
+                <div class="col-lg-6">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle section-tittle3">
+                        <div class="front-text">
+                            <h2 class="">Product</h2>
+                        </div>
+                        <span class="back-text">Gellary</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="properties__button">
+                        <!--Nav Button  -->                                            
+                        <nav> 
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="false"> Show  all </a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"> Intorior</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Recent</a>
+                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Big building</a>
+                                <a class="nav-item nav-link" id="nav-technology" data-toggle="tab" href="#nav-techno" role="tab" aria-controls="nav-contact" aria-selected="false">Park</a>
+                            </div>
+                        </nav>
+                        <!--End Nav Button  -->
+                    </div>
+                </div>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Nav Card -->
+                <div class="tab-content active" id="nav-tabContent">
+                    <!-- card ONE -->
+                    <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">           
+                        <div class="project-caption">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project1.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                            <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project2.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project3.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project4.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project5.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project6.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card TWO -->
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="project-caption">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project5.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project6.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project1.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project2.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project3.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project4.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card THREE -->
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <div class="project-caption">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project3.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project4.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project1.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project2.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project5.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project6.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card FUR -->
+                    <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
+                        <div class="project-caption">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project1.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project2.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project3.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project4.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project5.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project6.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- card FIVE -->
+                    <div class="tab-pane fade" id="nav-techno" role="tabpanel" aria-labelledby="nav-technology">
+                        <div class="project-caption">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project1.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project2.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project3.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project4.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project5.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-project mb-30">
+                                        <div class="project-img">
+                                            <img src="assets/img/gallery/project6.png" alt="">
+                                        </div>
+                                        <div class="project-cap">
+                                           <a href="project_details.html" class="plus-btn"><i class="ti-plus"></i></a>
+                                            <h4><a href="project_details.html">Floride Chemicals</a></h4>
+                                            <h4><a href="project_details.html">Factory</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Nav Card -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Project Area End -->
 </main>
 <footer>
     <div th:insert="@{common/footer}" id="footer"></div>

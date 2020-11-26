@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://103.218.157.98:3306/mysql?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://103.218.157.98:3306/toolmarket?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: kykim
   thymeleaf:
