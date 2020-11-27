@@ -7,9 +7,9 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
-    BoardDto selectById(long id);
+    BoardDto selectById(long groupId, long seq);
     List<BoardDto> selectAll();
-    void insertBoard(BoardDto boardDto);
-    void updateById(BoardDto boardDto);
-    void deleteById(long id);
+//    void insertBoard(BoardDto boardDto);
+//    void updateById(BoardDto boardDto);
+//    void deleteById(long seq);
 }

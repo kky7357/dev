@@ -16,9 +16,9 @@ public class BoardController {
     private BoardService boardService;
 
     //리스트
-    @GetMapping("/boardList")
-    public ModelAndView list() {
-
+    @GetMapping("/boardList/{groupId}")
+    public ModelAndView list(@PathVariable("groupId")Long groupId) {
+    System.out.println("groupId : " + groupId);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("board/BoardList");
 
@@ -26,6 +26,7 @@ public class BoardController {
 
         modelAndView.addObject("boardList",boardList);
 
+        System.out.println("test : "+ boardList);
         return modelAndView;
     }
 
@@ -38,50 +39,50 @@ public class BoardController {
 
         return modelAndView;
     }
-
-    //글쓰기
-    @PostMapping("/post")
-    public ModelAndView write(BoardDto boardDto) {
-        ModelAndView modelAndView = new ModelAndView();
-        boardService.savePost(boardDto);
-
-        modelAndView.setViewName("redirect:/list");
-        return modelAndView;
-    }
-
-    @GetMapping("/post/{no}")
-    public ModelAndView detail(@PathVariable("no") Long no, Model model) {
-        ModelAndView modelAndView = new ModelAndView();
-        BoardDto boardDTO = boardService.getPost(no);
-
-        model.addAttribute("boardDto", boardDTO);
-        modelAndView.setViewName("board/detail");
-        return modelAndView;
-    }
-
-    @GetMapping("/post/edit/{no}")
-    public ModelAndView edit(@PathVariable("no") Long no, Model model) {
-        ModelAndView modelAndView = new ModelAndView();
-        BoardDto boardDTO = boardService.getPost(no);
-
-        model.addAttribute("boardDto", boardDTO);
-        modelAndView.setViewName("board/update");
-        return modelAndView;
-    }
-
-    @PostMapping("/post/edit/{no}")
-    public ModelAndView update(BoardDto boardDTO) {
-        ModelAndView modelAndView = new ModelAndView();
-        boardService.updatePost(boardDTO);
-        modelAndView.setViewName("redirect:/list");
-        return modelAndView;
-    }
-
-    @PostMapping("/post/{no}")
-    public ModelAndView delete(@PathVariable("no") Long no) {
-        ModelAndView modelAndView = new ModelAndView();
-        boardService.deletePost(no);
-        modelAndView.setViewName("redirect:/list");
-        return modelAndView;
-    }
+//
+//    //글쓰기
+//    @PostMapping("/post")
+//    public ModelAndView write(BoardDto boardDto) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        boardService.savePost(boardDto);
+//
+//        modelAndView.setViewName("redirect:/list");
+//        return modelAndView;
+//    }
+//
+//    @GetMapping("/post/{no}")
+//    public ModelAndView detail(@PathVariable("groupId")Long groupId, @PathVariable("no") Long no, Model model) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        BoardDto boardDTO = boardService.getPost(groupId, no);
+//
+//        model.addAttribute("boardDto", boardDTO);
+//        modelAndView.setViewName("board/detail");
+//        return modelAndView;
+//    }
+//
+//    @GetMapping("/post/edit/{no}")
+//    public ModelAndView edit(@PathVariable("groupId") Long groupId, @PathVariable("no") Long no, Model model) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        BoardDto boardDTO = boardService.getPost(groupId,no);
+//
+//        model.addAttribute("boardDto", boardDTO);
+//        modelAndView.setViewName("board/update");
+//        return modelAndView;
+//    }
+//
+//    @PostMapping("/post/edit/{no}")
+//    public ModelAndView update(BoardDto boardDTO) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        boardService.updatePost(boardDTO);
+//        modelAndView.setViewName("redirect:/list");
+//        return modelAndView;
+//    }
+//
+//    @PostMapping("/post/{no}")
+//    public ModelAndView delete(@PathVariable("no") Long no) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        boardService.deletePost(no);
+//        modelAndView.setViewName("redirect:/list");
+//        return modelAndView;
+//    }
 }

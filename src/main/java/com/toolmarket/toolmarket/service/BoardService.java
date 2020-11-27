@@ -20,7 +20,7 @@ public class BoardService {
         List<BoardDto> boardDtoList = new ArrayList<>();
         for ( BoardDto boardDto : boardDtos) {
             BoardDto boardDTO = BoardDto.builder()
-                    .id(boardDto.getId())
+                    .seq(boardDto.getSeq())
                     .title(boardDto.getTitle())
                     .content(boardDto.getContent())
                     .writer(boardDto.getWriter())
@@ -32,24 +32,24 @@ public class BoardService {
         return boardDtoList;
     }
 
-    @Transactional
-    public void savePost(BoardDto boardDto) {
-        boardMapper.insertBoard(boardDto);
-    }
-
-    @Transactional
-    public void updatePost(BoardDto boardDto) {
-        boardMapper.updateById(boardDto);
-    }
-    @Transactional
-    public BoardDto getPost(Long id) {
-        BoardDto boardDto = boardMapper.selectById(id);
-        return boardDto;
-    }
-
-    @Transactional
-    public void deletePost(Long id) {
-        boardMapper.deleteById(id);
-    }
+//    @Transactional
+//    public void savePost(BoardDto boardDto) {
+//        boardMapper.insertBoard(boardDto);
+//    }
+//
+//    @Transactional
+//    public void updatePost(BoardDto boardDto) {
+//        boardMapper.updateById(boardDto);
+//    }
+//    @Transactional
+//    public BoardDto getPost(Long groupId, Long id) {
+//        BoardDto boardDto = boardMapper.selectById(groupId, id);
+//        return boardDto;
+//    }
+//
+//    @Transactional
+//    public void deletePost(Long id) {
+//        boardMapper.deleteById(id);
+//    }
 
 }

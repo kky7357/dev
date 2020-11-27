@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 public class BoardDto {
-    private Long id;
+    private Long groupId;
+    private Long seq;
     private String writer;
     private String title;
     private String content;
@@ -17,8 +18,9 @@ public class BoardDto {
     private LocalDateTime modifiedDate;
 
     @Builder
-    public BoardDto(Long id, String title, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
-        this.id = id;
+    public BoardDto(Long groupId, Long seq, String title, String content, String writer, LocalDateTime createdDate, LocalDateTime modifiedDate) {
+        this.groupId = groupId;
+        this.seq = seq;
         this.writer = writer;
         this.title = title;
         this.content = content;
