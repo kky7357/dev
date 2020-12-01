@@ -5,29 +5,23 @@
 
 <mapper namespace="com.toolmarket.toolmarket.mapper.BoardMapper">
 
-    <select id="selectAll" resultType="com.toolmarket.toolmarket.dto.BoardDto">
-        SELECT group_id
-        ,seq
-        ,title
-        ,content
-        ,writer
-        ,cdate
-        ,udate
-        FROM board
-        where group_id = #{groupId}
+    <select id="selectByGroup" resultType="list">
+        SELECT *
+        FROM BOARD
+        WHERE GROUPID = #{groupId}
     </select>
 
-    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">
-        SELECT group_id
-        ,SEQ
-        ,title
-        ,content
-        ,writer
-        ,cdate
-        ,udate
-        FROM board
-        WHERE SEQ= #{id} AND group_id = #{groupId}
-    </select>
+<!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->
+<!--        SELECT group_id-->
+<!--        ,SEQ-->
+<!--        ,title-->
+<!--        ,content-->
+<!--        ,writer-->
+<!--        ,cdate-->
+<!--        ,udate-->
+<!--        FROM board-->
+<!--        WHERE SEQ= #{id} AND group_id = #{groupId}-->
+<!--    </select>-->
 
 <!--    <delete  id="deleteById">-->
 <!--        DELETE FROM board WHERE ID=#{id} and group_id=#{groupId}-->

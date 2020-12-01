@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -16,18 +18,24 @@ public class BoardController {
     private BoardService boardService;
 
     //리스트
-    @GetMapping("/boardList/{groupId}")
-    public ModelAndView list(@PathVariable("groupId")Long groupId) {
-    System.out.println("groupId : " + groupId);
+    @GetMapping("/boardList")
+    public ModelAndView boardList() {
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("board/BoardList");
 
-        List<BoardDto> boardList = boardService.getBoardlist();
+        return modelAndView;
+    }
 
-        modelAndView.addObject("boardList",boardList);
+    @GetMapping("/getList")
+    public List<Map<String, Object>> getList(HttpServletRequest req) {
+
+        List<Map<String, Object>> boardList = boardService.getBoardlist(req.getParameter("groupId"));
+
+
 
         System.out.println("test : "+ boardList);
-        return modelAndView;
+        return boardList;
     }
 
     //글쓰기폼

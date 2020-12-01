@@ -178,7 +178,6 @@
     });
 
     $(window).on('scroll', function () {
-    console.log("test")
       var scroll = $(window).scrollTop();
       if (scroll < 245) {
           $(".header-sticky").removeClass("sticky");
