@@ -12,6 +12,8 @@ spring:
   devtools:
     livereload:
       enabled: true
+    freemarker:
+      cache: false
 #  jpa:
 #    show-sql: true
 #    properties:

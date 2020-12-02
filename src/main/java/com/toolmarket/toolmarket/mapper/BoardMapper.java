@@ -9,7 +9,7 @@ import java.util.Map;
 @Mapper
 public interface BoardMapper {
 //    BoardDto selectById(long groupId, long seq);
-    List<Map<String, Object>> selectByGroup(String groupId);
+    List<BoardDto> selectByGroup(String type);
 //    void insertBoard(BoardDto boardDto);
 //    void updateById(BoardDto boardDto);
 //    void deleteById(long seq);

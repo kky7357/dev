@@ -5,10 +5,9 @@
 
 <mapper namespace="com.toolmarket.toolmarket.mapper.BoardMapper">
 
-    <select id="selectByGroup" resultType="list">
+    <select id="selectByGroup" resultType="com.toolmarket.toolmarket.dto.BoardDto">
         SELECT *
         FROM BOARD
-        WHERE GROUPID = #{groupId}
     </select>
 
 <!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->

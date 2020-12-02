@@ -1,17 +1,13 @@
 package com.toolmarket.toolmarket.service;
 
-import com.mysql.cj.xdevapi.JsonArray;
 import com.toolmarket.toolmarket.dto.BoardDto;
 import com.toolmarket.toolmarket.mapper.BoardMapper;
 import lombok.AllArgsConstructor;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @AllArgsConstructor
 @Service
@@ -19,24 +15,23 @@ public class BoardService {
     private BoardMapper boardMapper;
 
     @Transactional
-    public List<Map<String, Object>> getBoardlist(String groupId) {
-        List<Map<String, Object>> boardList = boardMapper.selectByGroup(groupId);
+    public List<BoardDto> getBoardlist(String type) {
+        List<BoardDto> boardList = boardMapper.selectByGroup(type);
         System.out.println("boardList " + boardList);
 
 
-//        List<BoardDto> boardDtoList = new ArrayList<>();
-//        for ( BoardDto boardDto : boardDtos) {
-//            BoardDto boardDTO = BoardDto.builder()
-//                    .groupId(boardDto.getGroupId())
-//                    .seq(boardDto.getSeq())
-//                    .title(boardDto.getTitle())
-//                    .content(boardDto.getContent())
-//                    .writer(boardDto.getWriter())
-//                    .cDate(boardDto.getCDate())
-//                    .build();
-//
-//            boardDtoList.add(boardDTO);
-//        }
+        List<BoardDto> boardDtoList = new ArrayList<>();
+        for ( BoardDto boardDto : boardList) {
+            BoardDto boardDTO = BoardDto.builder()
+                    .seq(boardDto.getSeq())
+                    .title(boardDto.getTitle())
+                    .content(boardDto.getContent())
+                    .writer(boardDto.getWriter())
+                    .cDate(boardDto.getCDate())
+                    .build();
+
+            boardDtoList.add(boardDTO);
+        }
 //
 //        JSONArray jsonArray = new JSONArray();
 //        for (int i = 0; i < boardDtoList.size(); i++) {

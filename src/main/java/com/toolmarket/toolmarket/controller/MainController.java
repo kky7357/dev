@@ -1,37 +1,30 @@
 package com.toolmarket.toolmarket.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 @RequestMapping("/")
 public class MainController {
 
     @GetMapping("/")
-    public ModelAndView main() {
-        ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("main");
-
-        return modelAndView;
+    public String main() {
+        return "layout/main";
     }
 
     @GetMapping("/about")
-    public ModelAndView about() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("pages/about");
-
-        return modelAndView;
+    public String about() {
+        return "layout/about";
     }
 
     @GetMapping("/product")
-    public ModelAndView product() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("pages/product");
-
-        return modelAndView;
+    public String product() {
+        return "product/ProductList";
+    }
+    @GetMapping("/board")
+    public String board() {
+        return "board/BoardList";
     }
 
 }

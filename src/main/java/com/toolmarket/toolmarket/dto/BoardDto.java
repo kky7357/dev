@@ -9,22 +9,20 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 public class BoardDto {
-    private String groupId;
     private Long seq;
-    private String writer;
     private String title;
+    private String writer;
     private String content;
     private LocalDateTime cDate;
-    private LocalDateTime udate;
+    private LocalDateTime uDate;
 
     @Builder
-    public BoardDto(String groupId, Long seq, String title, String content, String writer, LocalDateTime cDate, LocalDateTime udate) {
-        this.groupId = groupId;
+    public BoardDto(Long seq, String title, String content, String writer, LocalDateTime cDate, LocalDateTime uDate) {
         this.seq = seq;
         this.writer = writer;
         this.title = title;
         this.content = content;
         this.cDate = cDate;
-        this.udate = udate;
+        this.uDate = uDate;
     }
 }

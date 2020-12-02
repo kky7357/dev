@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @AllArgsConstructor
@@ -17,36 +15,35 @@ public class BoardController {
 
     private BoardService boardService;
 
+
     //리스트
-    @GetMapping("/boardList")
-    public ModelAndView boardList() {
+//    @GetMapping("/boardList")
+//    public ModelAndView boardList() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("board/BoardList");
+//        return modelAndView;
+//    }
 
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("board/BoardList");
+//    @GetMapping("/getList")
+//    public List<BoardDto> getList(String groupId) {
+//
+//        List<BoardDto> boardList = boardService.getBoardlist(groupId);
+//
+//
+//
+//        System.out.println("test : "+ boardList);
+//        return boardList;
+//    }
 
-        return modelAndView;
-    }
-
-    @GetMapping("/getList")
-    public List<Map<String, Object>> getList(HttpServletRequest req) {
-
-        List<Map<String, Object>> boardList = boardService.getBoardlist(req.getParameter("groupId"));
-
-
-
-        System.out.println("test : "+ boardList);
-        return boardList;
-    }
-
-    //글쓰기폼
-    @GetMapping("/post")
-    public ModelAndView write() {
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("board/write");
-
-        return modelAndView;
-    }
+//    //글쓰기폼
+//    @GetMapping("/post")
+//    public ModelAndView write() {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("board/write");
+//
+//        return modelAndView;
+//    }
 //
 //    //글쓰기
 //    @PostMapping("/post")

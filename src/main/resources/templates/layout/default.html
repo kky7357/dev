@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:replace="fragment/head :: headFragment"></th:block>
+
+<body>
+
+
+
+<div id="content-wrapper" class="d-flex flex-column">
+    <div id="content">
+        <!-- 상단바-->
+        <th:block th:replace="fragment/header :: headerFragment"></th:block>
+
+        <!-- 본문-->
+        <th:block layout:fragment="content"></th:block>
+    </div>
+    
+    <!-- 공통 하단-->
+    <th:block th:replace="fragment/footer :: footerFragment"></th:block>
+</div>
+
+
+
+<th:block th:replace="fragment/script :: scriptFragment"></th:block>
+</body>
+</html>
