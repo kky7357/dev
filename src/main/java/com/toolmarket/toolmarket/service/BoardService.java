@@ -16,9 +16,13 @@ public class BoardService {
 
     @Transactional
     public List<BoardDto> getBoardlist(String type) {
-        List<BoardDto> boardList = boardMapper.selectByGroup(type);
+        List<BoardDto> boardList = new ArrayList<>();
+        if(type != null && type.equals("A01")){
+            boardList = boardMapper.selectAllNotice();
+        }else if(type != null && type.equals("A02")){
+            boardList = boardMapper.selectAllQna();
+        }
         System.out.println("boardList " + boardList);
-
 
         List<BoardDto> boardDtoList = new ArrayList<>();
         for ( BoardDto boardDto : boardList) {

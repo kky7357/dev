@@ -5,23 +5,24 @@
 
 <mapper namespace="com.toolmarket.toolmarket.mapper.ProductMapper">
 
-    <select id="selectAllCategory" resultType="com.toolmarket.toolmarket.dto.ProductDto">
-        SELECT cId
-        ,cName
-        ,cImageUrl
-        FROM category
+    <select id="selectProductByCategory" resultType="com.toolmarket.toolmarket.dto.ProductDto">
+        SELECT PID
+        ,PNAME
+        ,PIMAGE
+        FROM PRODUCT
+        WHERE CID = #{type}
     </select>
 
-    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">
-        SELECT cName
-        ,pId
-        ,pName
-        ,pSpec
-        ,pDesc
-        ,pPrice
-        FROM product
-        WHERE ID= #{pId}
-    </select>
+<!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->
+<!--        SELECT cName-->
+<!--        ,pId-->
+<!--        ,pName-->
+<!--        ,pSpec-->
+<!--        ,pDesc-->
+<!--        ,pPrice-->
+<!--        FROM product-->
+<!--        WHERE ID= #{pId}-->
+<!--    </select>-->
 
 <!--    <delete  id="deleteById">-->
 <!--        DELETE FROM board WHERE ID=#{id}-->

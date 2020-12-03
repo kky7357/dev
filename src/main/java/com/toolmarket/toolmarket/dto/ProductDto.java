@@ -7,14 +7,16 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class ProductDto {
-    private Long cId;
-    private String cName;
-    private String cImageUrl;
+    private String cId;
+    private Long pId;
+    private String pName;
+    private String pImage;
 
     @Builder
-    public ProductDto (Long cId, String cName, String cImageUrl) {
+    public ProductDto (String cId, Long pId, String pName, String pImage) {
         this.cId = cId;
-        this.cName = cName;
-        this.cImageUrl = cImageUrl;
+        this.pId = pId;
+        this.pName = pName;
+        this.pImage = pImage;
     }
 }

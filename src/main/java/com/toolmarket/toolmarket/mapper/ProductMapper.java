@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductMapper {
 
-    List<ProductDto> selectAllCategory();
+    List<ProductDto> selectProductByCategory(String type);
     ProductDto selectById(long cId);
 //    void insertBoard(BoardDto boardDto);
 //    void updateById(BoardDto boardDto);

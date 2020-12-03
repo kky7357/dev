@@ -15,14 +15,15 @@ public class ProductService {
     private ProductMapper productMapper;
 
     @Transactional
-    public List<ProductDto> getCategorylist() {
-        List<ProductDto> productDtos = productMapper.selectAllCategory();
+    public List<ProductDto> getProductList(String type) {
+        List<ProductDto> productDtos = productMapper.selectProductByCategory(type);
         List<ProductDto> productDtoList = new ArrayList<>();
         for ( ProductDto productDto : productDtos) {
             ProductDto productDTO = ProductDto.builder()
                     .cId(productDto.getCId())
-                    .cName(productDto.getCName())
-                    .cImageUrl(productDto.getCImageUrl())
+                    .pId(productDto.getPId())
+                    .pName(productDto.getPName())
+                    .pImage(productDto.getPImage())
                     .build();
 
             productDtoList.add(productDTO);
@@ -30,11 +31,11 @@ public class ProductService {
         return productDtoList;
     }
 
-    @Transactional
-    public ProductDto getProduct(Long cId) {
-        ProductDto productDto = productMapper.selectById(cId);
-        return productDto;
-    }
+//    @Transactional
+//    public ProductDto getProduct(Long cId) {
+//        ProductDto productDto = productMapper.selectById(cId);
+//        return productDto;
+//    }
 //
 //    @Transactional
 //    public void savePost(BoardDto boardDto) {

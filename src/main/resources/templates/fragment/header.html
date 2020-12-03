@@ -58,10 +58,10 @@
                                         <li><a th:href="@{about}">회사소개</a></li>
                                         <li><a th:href="@{category}">제품소개</a>
                                             <ul class="submenu">
-                                                <li><a href="#">분류_1</a></li>
-                                                <li><a href="#">분류_2</a></li>
-                                                <li><a href="#">분류_3</a></li>
-                                                <li><a href="#">분류_4</a></li>
+                                                <li><a th:href="@{/product(type='C01')}">category1</a></li>
+                                                <li><a th:href="@{/product(type='C02')}">category2</a></li>
+                                                <li><a th:href="@{/product(type='C03')}">category3</a></li>
+                                                <li><a th:href="@{/product(type='C04')}">category4</a></li>
                                             </ul></li>
                                         <li><a th:href="@{/board(type='A01')}">문의하기</a>
                                             <ul class="submenu">
