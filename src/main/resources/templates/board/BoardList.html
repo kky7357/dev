@@ -1,251 +1,169 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Toolmarket Test</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{../assets/img/favicon.ico}">
-
-    <!-- CSS here -->
-    <link rel="stylesheet" th:href="@{../assets/css/bootstrap.min.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/owl.carousel.min.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/slicknav.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/animate.min.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/magnific-popup.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/fontawesome-all.min.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/themify-icons.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/slick.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/nice-select.css}">
-    <link rel="stylesheet" th:href="@{../assets/css/style.css}">
-</head>
-<body>
-
-<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img th:src="@{../assets/img/logo/loder-logo.png}" alt="">
-            </div>
-        </div>
-    </div>
-</div>
-
-<header>
-    <div th:insert="common/header" id="header"></div>
-</header>
-
-<main>
-    <!-- slider Area Start-->
-    <div class="slider-area ">
-        <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="../assets/img/hero/about.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap pt-100">
-                            <h2>Contact</h2>
-                            <nav aria-label="breadcrumb ">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">Contact</a></li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- slider Area End-->
-
-    <section class="project-area  section-padding30">
-        <div class="container">
-            <div class="project-heading mb-35">
-                <div class="row align-items-end">
-                    <div class="col-lg-6">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle section-tittle3">
-                            <div class="front-text">
-                                <h2 class="">CONTACT</h2>
-                            </div>
-<!--                            <span class="back-text">Gallary</span>-->
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="properties__button">
-                            <!--Nav Button  -->
-                            <nav>
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-link" id="nav-notice-tab" data-toggle="tab" href="#nav-notice" role="tab" aria-controls="nav-profile" aria-selected="false">Notice</span>
-                                    <a class="nav-item nav-link" id="nav-qna-tab" data-toggle="tab" href="#nav-qna" role="tab" aria-controls="nav-contact" aria-selected="false">Q&A</a>
-                                    <a class="nav-item nav-link" id="nav-news-tab" data-toggle="tab" href="#nav-news" role="tab" aria-controls="nav-contact" aria-selected="false">News</a>
+    <th:block layout:fragment="content">
+        <main>
+            <!-- slider Area Start-->
+            <div class="slider-area ">
+                <div class="single-slider hero-overly slider-height2 d-flex align-items-center" data-background="../assets/img/hero/about.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="hero-cap pt-100">
+                                    <h2>Contact</h2>
+                                    <nav aria-label="breadcrumb ">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Contact</a></li>
+                                        </ol>
+                                    </nav>
                                 </div>
-                            </nav>
-                            <!--End Nav Button  -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <!-- Nav Card -->
-                    <div class="tab-content active" id="tabContent">
-                        <!-- card ONE -->
-                        <div class="tab-pane fade active show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
-                            <div class="project-caption">
-                                <div style="padding:10px 10px 10px 10px;">
-                                    <div class="section-top-border">
-                                        <h3 class="mb-30">Notice</h3>
-                                        <div class="progress-table-wrap">
-                                            <div class="progress-table">
-                                                <div class="table-head">
-                                                    <div class="serial">No</div>
-                                                    <div class="country">Title</div>
-                                                    <div class="visit">Writer</div>
-                                                    <div class="percentage">Date</div>
-                                                </div>
-                                                <div th:each="board : ${boardList}" class="table-row">
-                                                    <div class="serial"><span th:text="${board.seq}"></span></div>
-                                                    <div class="country"><a th:href="@{'/post/' + ${board.seq}}">
-                                                        <span th:text="${board.title}"></span>
-                                                    </a></div>
-                                                    <div class="visit"><span th:text="${board.writer}"></span></div>
-                                                    <div class="percentage">
-                                                        <span th:text="${#temporals.format(board.cDate, 'yyyy-MM-dd HH:mm')}"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
+            <!-- slider Area End-->
+
+            <section class="project-area  section-padding30">
+                <div class="container">
+                    <div class="project-heading mb-35">
+                        <div class="row align-items-end">
+                            <div class="col-lg-6">
+                                <!-- Section Tittle -->
+                                <div class="section-tittle section-tittle3">
+                                    <div class="front-text">
+                                        <h2 class="">CONTACT</h2>
                                     </div>
+        <!--                            <span class="back-text">Gallary</span>-->
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="properties__button">
+                                    <!--Nav Button  -->
+                                    <nav>
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link" id="nav-notice-tab" data-toggle="tab" href="#nav-notice" role="tab" aria-controls="nav-profile" aria-selected="false">Notice</span>
+                                            <a class="nav-item nav-link" id="nav-qna-tab" data-toggle="tab" href="#nav-qna" role="tab" aria-controls="nav-contact" aria-selected="false">Q&A</a>
+                                            <a class="nav-item nav-link" id="nav-news-tab" data-toggle="tab" href="#nav-news" role="tab" aria-controls="nav-contact" aria-selected="false">News</a>
+                                        </div>
+                                    </nav>
+                                    <!--End Nav Button  -->
                                 </div>
                             </div>
                         </div>
-                        <!-- Card TWO -->
-                        <!-- <div class="tab-pane fade" id="nav-qna" role="tabpanel" aria-labelledby="nav-profile-tab">
-                            <div class="project-caption">
-                                <div class="project-caption">
-                                    <div style="padding:10px 10px 10px 10px;">
-                                        <div class="section-top-border">
-                                            <h3 class="mb-30">Q&A</h3>
-                                            <div class="progress-table-wrap">
-                                                <div class="progress-table">
-                                                    <div class="table-head">
-                                                        <div class="serial">No</div>
-                                                        <div class="">GROUP</div>
-                                                        <div class="country">Title</div>
-                                                        <div class="visit">Writer</div>
-                                                        <div class="percentage">Date</div>
-                                                    </div>
-                                                    <div th:each="board : ${boardList}" class="table-row">
-                                                        <div class=""><span th:text="${board.id}"></span></div>
-                                                        <div class=""><a th:href="@{'/post/' + ${board.id}}(groupId=${board.groupId})">
-                                                            <span th:text="${board.title}"></span>
-                                                        </a></div>
-                                                        <div class=""><span th:text="${board.writer}"></span></div>
-                                                        <div class="">
-                                                            <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Nav Card -->
+                            <div class="tab-content active" id="tabContent">
+                                <!-- card ONE -->
+                                <div class="tab-pane fade active show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
+                                    <div class="project-caption">
+                                        <div style="padding:10px 10px 10px 10px;">
+                                            <div class="section-top-border">
+                                                <h3 class="mb-30">Notice</h3>
+                                                <div class="progress-table-wrap">
+                                                    <div class="progress-table">
+                                                        <div class="table-head">
+                                                            <div class="serial">No</div>
+                                                            <div class="country">Title</div>
+                                                            <div class="visit">Writer</div>
+                                                            <div class="percentage">Date</div>
+                                                        </div>
+                                                        <div th:each="board : ${boardList}" class="table-row">
+                                                            <div class="serial"><span th:text="${board.seq}"></span></div>
+                                                            <div class="country"><a th:href="@{'/post/' + ${board.seq}}">
+                                                                <span th:text="${board.title}"></span>
+                                                            </a></div>
+                                                            <div class="visit"><span th:text="${board.writer}"></span></div>
+                                                            <div class="percentage">
+                                                                <span th:text="${#temporals.format(board.cDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
                                             </div>
-                                            <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div> -->
-                        <!-- Card THREE -->
-                        <!-- <div class="tab-pane fade" id="nav-news" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="project-caption">
-                                <div class="project-caption">
-                                    <div style="padding:10px 10px 10px 10px;">
-                                        <div class="section-top-border">
-                                            <h3 class="mb-30">News</h3>
-                                            <div class="progress-table-wrap">
-                                                <div class="progress-table">
-                                                    <div class="table-head">
-                                                        <div class="serial">No</div>
-                                                        <div class="country">Title</div>
-                                                        <div class="visit">Writer</div>
-                                                        <div class="percentage">Date</div>
-                                                    </div>
-                                                    <div th:each="board : ${boardList}" class="table-row">
-                                                        <div class="serial"><span th:text="${board.id}"></span></div>
-                                                        <div class="country"><a th:href="@{'/post/' + ${board.id}}">
-                                                            <span th:text="${board.title}"></span>
-                                                        </a></div>
-                                                        <div class="visit"><span th:text="${board.writer}"></span></div>
-                                                        <div class="percentage">
-                                                            <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                <!-- Card TWO -->
+                                <!-- <div class="tab-pane fade" id="nav-qna" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                    <div class="project-caption">
+                                        <div class="project-caption">
+                                            <div style="padding:10px 10px 10px 10px;">
+                                                <div class="section-top-border">
+                                                    <h3 class="mb-30">Q&A</h3>
+                                                    <div class="progress-table-wrap">
+                                                        <div class="progress-table">
+                                                            <div class="table-head">
+                                                                <div class="serial">No</div>
+                                                                <div class="">GROUP</div>
+                                                                <div class="country">Title</div>
+                                                                <div class="visit">Writer</div>
+                                                                <div class="percentage">Date</div>
+                                                            </div>
+                                                            <div th:each="board : ${boardList}" class="table-row">
+                                                                <div class=""><span th:text="${board.id}"></span></div>
+                                                                <div class=""><a th:href="@{'/post/' + ${board.id}}(groupId=${board.groupId})">
+                                                                    <span th:text="${board.title}"></span>
+                                                                </a></div>
+                                                                <div class=""><span th:text="${board.writer}"></span></div>
+                                                                <div class="">
+                                                                    <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
                                                 </div>
                                             </div>
-                                            <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- Card THREE -->
+                                <!-- <div class="tab-pane fade" id="nav-news" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                    <div class="project-caption">
+                                        <div class="project-caption">
+                                            <div style="padding:10px 10px 10px 10px;">
+                                                <div class="section-top-border">
+                                                    <h3 class="mb-30">News</h3>
+                                                    <div class="progress-table-wrap">
+                                                        <div class="progress-table">
+                                                            <div class="table-head">
+                                                                <div class="serial">No</div>
+                                                                <div class="country">Title</div>
+                                                                <div class="visit">Writer</div>
+                                                                <div class="percentage">Date</div>
+                                                            </div>
+                                                            <div th:each="board : ${boardList}" class="table-row">
+                                                                <div class="serial"><span th:text="${board.id}"></span></div>
+                                                                <div class="country"><a th:href="@{'/post/' + ${board.id}}">
+                                                                    <span th:text="${board.title}"></span>
+                                                                </a></div>
+                                                                <div class="visit"><span th:text="${board.writer}"></span></div>
+                                                                <div class="percentage">
+                                                                    <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <!-- End Nav Card -->
                         </div>
-                    </div> -->
-                    <!-- End Nav Card -->
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- Project Area End -->
-</main>
-    <footer>
-        <div th:insert="@{common/footer}" id="footer"></div>
-    </footer>
-
-    <!-- JS here -->
-
-    <!-- All JS Custom Plugins Link Here here -->
-    <script th:src="@{../assets/js/vendor/modernizr-3.5.0.min.js}"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script th:src="@{../assets/js/vendor/jquery-1.12.4.min.js}"></script>
-    <script th:src="@{../assets/js/popper.min.js}"></script>
-    <script th:src="@{../assets/js/bootstrap.min.js}"></script>
-    <!-- Jquery Mobile Menu -->
-    <script th:src="@{../assets/js/jquery.slicknav.min.js}"></script>
-
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script th:src="@{../assets/js/owl.carousel.min.js}"></script>
-    <script th:src="@{../assets/js/slick.min.js}"></script>
-    <!-- Date Picker -->
-    <script th:src="@{../assets/js/gijgo.min.js}"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script th:src="@{../assets/js/wow.min.js}"></script>
-    <script th:src="@{../assets/js/animated.headline.js}"></script>
-    <script th:src="@{../assets/js/jquery.magnific-popup.js}"></script>
-
-    <!-- Scrollup, nice-select, sticky -->
-    <script th:src="@{../assets/js/jquery.scrollUp.min.js}"></script>
-    <script th:src="@{../assets/js/jquery.nice-select.min.js}"></script>
-    <script th:src="@{../assets/js/jquery.sticky.js}"></script>
-
-    <!-- counter , waypoint -->
-    <script th:src="@{../assets/js/waypoints.min.js}"></script>
-    <script th:src="@{../assets/js/jquery.counterup.min.js}"></script>
-
-    <!-- contact js -->
-    <script th:src="@{../assets/js/contact.js}"></script>
-    <script th:src="@{../assets/js/jquery.form.js}"></script>
-    <script th:src="@{../assets/js/jquery.validate.min.js}"></script>
-    <script th:src="@{../assets/js/mail-script.js}"></script>
-    <script th:src="@{../assets/js/jquery.ajaxchimp.min.js}"></script>
-
-    <!-- Jquery Plugins, main Jquery -->
-    <script th:src="@{../assets/js/plugins.js}"></script>
-    <script th:src="@{../assets/js/main.js}"></script>
-
-    <script th:src="@{/static/js/board.js}"></script>
-
-    </body>
+            </section>
+            <!-- Project Area End -->
+        </main>
+</th:block>
 </html>

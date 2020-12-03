@@ -17,6 +17,17 @@ public class BoardController {
 
 
     //리스트
+
+
+    @GetMapping("/board")
+    public ModelAndView board(@RequestParam(required = false) String type) {
+        System.out.println("type: " + type);
+        List<BoardDto> boardList = boardService.getBoardlist(type);
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("board/BoardList");
+        mav.addObject("boardList",boardList);
+        return mav;
+    }
 //    @GetMapping("/boardList")
 //    public ModelAndView boardList() {
 //        ModelAndView modelAndView = new ModelAndView();

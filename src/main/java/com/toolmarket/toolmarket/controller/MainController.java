@@ -2,7 +2,9 @@ package com.toolmarket.toolmarket.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
@@ -22,9 +24,10 @@ public class MainController {
     public String product() {
         return "product/ProductList";
     }
-    @GetMapping("/board")
-    public String board() {
-        return "board/BoardList";
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "layout/contact";
     }
 
 }

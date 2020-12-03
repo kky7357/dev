@@ -5,18 +5,14 @@
 <th:block th:replace="fragment/head :: headFragment"></th:block>
 
 <body>
-    <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-            <!-- Header-->
-            <th:block th:replace="fragment/header :: headerFragment"></th:block>
+    <!-- Header-->
+    <th:block th:replace="fragment/header :: headerFragment"></th:block>
 
-            <!-- 본문-->
-            <th:block layout:fragment="content"></th:block>
-        </div>
+    <!-- 본문-->
+    <th:block layout:fragment="content"></th:block>
 
-        <!-- Footer-->
-        <th:block th:replace="fragment/footer :: footerFragment"></th:block>
-    </div>
+    <!-- Footer-->
+    <th:block th:replace="fragment/footer :: footerFragment"></th:block>
 
 <!--공통 Script-->
 </body>
