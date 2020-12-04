@@ -21,6 +21,8 @@ public class BoardService {
             boardList = boardMapper.selectAllNotice();
         }else if(type != null && type.equals("A02")){
             boardList = boardMapper.selectAllQna();
+        }else if(type != null && type.equals("A03")){
+            boardList = boardMapper.selectAllBoard();
         }
         System.out.println("boardList " + boardList);
 

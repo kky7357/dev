@@ -3,13 +3,14 @@ package com.toolmarket.toolmarket.controller;
 import com.toolmarket.toolmarket.dto.BoardDto;
 import com.toolmarket.toolmarket.service.BoardService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+@Controller
 @AllArgsConstructor
 public class BoardController {
 
@@ -20,14 +21,14 @@ public class BoardController {
 
 
     @GetMapping("/board")
-    public ModelAndView board(@RequestParam(required = false) String type) {
-        System.out.println("type: " + type);
-        List<BoardDto> boardList = boardService.getBoardlist(type);
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("board/BoardList");
-        mav.addObject("boardList",boardList);
-        return mav;
+    public String board(@RequestParam(required = false) String type, Model model) {
+//        List<BoardDto> boardList = boardService.getBoardlist(type);
+        model.addAttribute("noticeList",boardService.getBoardlist("A01"));
+        model.addAttribute("qnaList",boardService.getBoardlist("A02"));
+        model.addAttribute("boardList",boardService.getBoardlist("A03"));
+        return "board/BoardList";
     }
+
 //    @GetMapping("/boardList")
 //    public ModelAndView boardList() {
 //        ModelAndView modelAndView = new ModelAndView();

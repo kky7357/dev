@@ -13,6 +13,9 @@
         SELECT * FROM QNA
     </select>
 
+    <select id="selectAllBoard" resultType="com.toolmarket.toolmarket.dto.BoardDto">
+        SELECT * FROM NOTICE
+    </select>
 <!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->
 <!--        SELECT group_id-->
 <!--        ,SEQ-->

@@ -60,7 +60,7 @@
                             <!-- Nav Card -->
                             <div class="tab-content active" id="tabContent">
                                 <!-- card ONE -->
-                                <div class="tab-pane fade active show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
+                                <div class="tab-pane fade show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
                                     <div class="project-caption">
                                         <div style="padding:10px 10px 10px 10px;">
                                             <div class="section-top-border">
@@ -73,14 +73,14 @@
                                                             <div class="visit">Writer</div>
                                                             <div class="percentage">Date</div>
                                                         </div>
-                                                        <div th:each="board : ${boardList}" class="table-row">
-                                                            <div class="serial"><span th:text="${board.seq}"></span></div>
-                                                            <div class="country"><a th:href="@{'/post/' + ${board.seq}}">
-                                                                <span th:text="${board.title}"></span>
+                                                        <div th:each="notice : ${noticeList}" class="table-row">
+                                                            <div class="serial"><span th:text="${notice.seq}"></span></div>
+                                                            <div class="country"><a th:href="@{'/post/' + ${notice.seq}}">
+                                                                <span th:text="${notice.title}"></span>
                                                             </a></div>
-                                                            <div class="visit"><span th:text="${board.writer}"></span></div>
+                                                            <div class="visit"><span th:text="${notice.writer}"></span></div>
                                                             <div class="percentage">
-                                                                <span th:text="${#temporals.format(board.cDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                                                <span th:text="${#temporals.format(notice.cDate, 'yyyy-MM-dd HH:mm')}"></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -91,7 +91,7 @@
                                     </div>
                                 </div>
                                 <!-- Card TWO -->
-                                <!-- <div class="tab-pane fade" id="nav-qna" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="tab-pane fade" id="nav-qna" role="tabpanel" aria-labelledby="nav-profile-tab">
                                     <div class="project-caption">
                                         <div class="project-caption">
                                             <div style="padding:10px 10px 10px 10px;">
@@ -101,52 +101,18 @@
                                                         <div class="progress-table">
                                                             <div class="table-head">
                                                                 <div class="serial">No</div>
-                                                                <div class="">GROUP</div>
                                                                 <div class="country">Title</div>
                                                                 <div class="visit">Writer</div>
                                                                 <div class="percentage">Date</div>
                                                             </div>
-                                                            <div th:each="board : ${boardList}" class="table-row">
-                                                                <div class=""><span th:text="${board.id}"></span></div>
-                                                                <div class=""><a th:href="@{'/post/' + ${board.id}}(groupId=${board.groupId})">
-                                                                    <span th:text="${board.title}"></span>
+                                                            <div th:each="qna : ${qnaList}" class="table-row">
+                                                                <div class="serial"><span th:text="${qna.seq}"></span></div>
+                                                                <div class="country"><a th:href="@{'/post/' + ${qna.seq}}">
+                                                                    <span th:text="${qna.title}"></span>
                                                                 </a></div>
-                                                                <div class=""><span th:text="${board.writer}"></span></div>
-                                                                <div class="">
-                                                                    <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- Card THREE -->
-                                <!-- <div class="tab-pane fade" id="nav-news" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                    <div class="project-caption">
-                                        <div class="project-caption">
-                                            <div style="padding:10px 10px 10px 10px;">
-                                                <div class="section-top-border">
-                                                    <h3 class="mb-30">News</h3>
-                                                    <div class="progress-table-wrap">
-                                                        <div class="progress-table">
-                                                            <div class="table-head">
-                                                                <div class="serial">No</div>
-                                                                <div class="country">Title</div>
-                                                                <div class="visit">Writer</div>
-                                                                <div class="percentage">Date</div>
-                                                            </div>
-                                                            <div th:each="board : ${boardList}" class="table-row">
-                                                                <div class="serial"><span th:text="${board.id}"></span></div>
-                                                                <div class="country"><a th:href="@{'/post/' + ${board.id}}">
-                                                                    <span th:text="${board.title}"></span>
-                                                                </a></div>
-                                                                <div class="visit"><span th:text="${board.writer}"></span></div>
+                                                                <div class="visit"><span th:text="${qna.writer}"></span></div>
                                                                 <div class="percentage">
-                                                                    <span th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                                                    <span th:text="${#temporals.format(qna.cDate, 'yyyy-MM-dd HH:mm')}"></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -157,7 +123,40 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                                <!-- Card THREE -->
+                                <div class="tab-pane fade" id="nav-news" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                    <div class="project-caption">
+                                        <div class="project-caption">
+                                            <div style="padding:10px 10px 10px 10px;">
+                                                <div class="section-top-border">
+                                                    <h3 class="mb-30">Board</h3>
+                                                    <div class="progress-table-wrap">
+                                                        <div class="progress-table">
+                                                            <div class="table-head">
+                                                                <div class="serial">No</div>
+                                                                <div class="country">Title</div>
+                                                                <div class="visit">Writer</div>
+                                                                <div class="percentage">Date</div>
+                                                            </div>
+                                                            <div th:each="board : ${boardList}" class="table-row">
+                                                                <div class="serial"><span th:text="${board.seq}"></span></div>
+                                                                <div class="country"><a th:href="@{'/post/' + ${board.seq}}">
+                                                                    <span th:text="${board.title}"></span>
+                                                                </a></div>
+                                                                <div class="visit"><span th:text="${board.writer}"></span></div>
+                                                                <div class="percentage">
+                                                                    <span th:text="${#temporals.format(board.cDate, 'yyyy-MM-dd HH:mm')}"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- End Nav Card -->
                         </div>
                     </div>
@@ -165,5 +164,17 @@
             </section>
             <!-- Project Area End -->
         </main>
+    </th:block>
+    <th:block layout:fragment="pageScript">
+
+    <script>
+        $(document).ready(function () {
+
+            $('#nav-notice-tab').addclass("active")
+            $('#nav-notice').addclass("active")
+        });
+    </script>
+
 </th:block>
+
 </html>

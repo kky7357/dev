@@ -10,6 +10,7 @@ import java.util.Map;
 public interface BoardMapper {
 //    BoardDto selectById(long groupId, long seq);
     List<BoardDto> selectAllNotice();
+    List<BoardDto> selectAllBoard();
     List<BoardDto> selectAllQna();
 
 

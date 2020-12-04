@@ -2,10 +2,10 @@
 <html lagn="ko" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<!-- 공통으로 쓰이는 script파일을넣는다.-->
+<!-- 공통 Script.-->
 <th:block th:fragment="scriptFragment">
 
-    <!-- All JS Custom Plugins Link Here here -->
+    <!-- All JS Custom Plugins Link Here -->
     <script th:src="@{assets/js/vendor/modernizr-3.5.0.min.js}"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script th:src="@{assets/js/vendor/jquery-1.12.4.min.js}"></script>
@@ -19,7 +19,7 @@
     <script th:src="@{assets/js/slick.min.js}"></script>
     <!-- Date Picker -->
     <script th:src="@{assets/js/gijgo.min.js}"></script>
-    <!-- One Page, Animated-HeadLin -->
+    <!-- One Page, Animated-HeadLine -->
     <script th:src="@{assets/js/wow.min.js}"></script>
     <script th:src="@{assets/js/animated.headline.js}"></script>
     <script th:src="@{assets/js/jquery.magnific-popup.js}"></script>
@@ -44,5 +44,7 @@
     <script th:src="@{assets/js/plugins.js}"></script>
     <script th:src="@{assets/js/main.js}"></script>
 
+     <!-- 컨텐츠 페이지의 스크립트 영역이 들어감 -->
+     <th:block layout:fragment="pageScript"></th:block>
 </th:block>
 </html>
