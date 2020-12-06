@@ -5,17 +5,10 @@
 
 <mapper namespace="com.toolmarket.toolmarket.mapper.BoardMapper">
 
-    <select id="selectAllNotice" resultType="com.toolmarket.toolmarket.dto.BoardDto">
-            SELECT * FROM NOTICE
+    <select id="selectAll" resultType="com.toolmarket.toolmarket.dto.BoardDto">
+            SELECT * FROM BOARD
     </select>
 
-    <select id="selectAllQna" resultType="com.toolmarket.toolmarket.dto.BoardDto">
-        SELECT * FROM QNA
-    </select>
-
-    <select id="selectAllBoard" resultType="com.toolmarket.toolmarket.dto.BoardDto">
-        SELECT * FROM NOTICE
-    </select>
 <!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->
 <!--        SELECT group_id-->
 <!--        ,SEQ-->
@@ -32,18 +25,19 @@
 <!--        DELETE FROM board WHERE ID=#{id} and group_id=#{groupId}-->
 <!--    </delete>-->
 
-<!--    <insert id="insertBoard">-->
-<!--        insert-->
-<!--            into-->
-<!--                board (group_id,title,content,writer,createdDate )-->
-<!--                values (-->
-<!--                    #{groupId}-->
-<!--                    ,#{title}-->
-<!--                    ,#{content}-->
-<!--                    ,#{writer}-->
-<!--                    ,NOW()-->
-<!--        )-->
-<!--    </insert>-->
+    <insert id="insertBoard">
+        INSERT
+            INTO
+                BOARD (BTYPE,TITLE,CONTENT,WRITER,EMAIL,CDATE)
+                values (
+                    #{bType}
+                    ,#{title}
+                    ,#{content}
+                    ,#{writer}
+                    ,#{email}
+                    ,NOW()
+        )
+    </insert>
 
 <!--    <update id="updateById">-->
 <!--        UPDATE board SET groupId=#{groupId},title=#{title},content=#{content},writer=#{writer},udate=NOW() where id=#{id} and group_id=#{groupId}-->

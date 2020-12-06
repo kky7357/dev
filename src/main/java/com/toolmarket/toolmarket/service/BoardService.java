@@ -15,52 +15,62 @@ public class BoardService {
     private BoardMapper boardMapper;
 
     @Transactional
-    public List<BoardDto> getBoardlist(String type) {
+    public List getBoardlist() {
+        List<BoardDto> allBoardList = new ArrayList<>();
+        allBoardList = boardMapper.selectAll();
+        System.out.println("service " + allBoardList);
+
+        List<BoardDto> noticeList = new ArrayList<>();
+        List<BoardDto> qnaList = new ArrayList<>();
         List<BoardDto> boardList = new ArrayList<>();
-        if(type != null && type.equals("A01")){
-            boardList = boardMapper.selectAllNotice();
-        }else if(type != null && type.equals("A02")){
-            boardList = boardMapper.selectAllQna();
-        }else if(type != null && type.equals("A03")){
-            boardList = boardMapper.selectAllBoard();
+
+        for ( BoardDto list : allBoardList) {
+            if(list.getBType().equals("B01")){
+                BoardDto boardDto = BoardDto.builder()
+                        .seq(list.getSeq())
+                        .title(list.getTitle())
+                        .content(list.getContent())
+                        .writer(list.getWriter())
+                        .cDate(list.getCDate())
+                        .build();
+
+                noticeList.add(boardDto);
+            }else if (list.getBType().equals("B02")) {
+                BoardDto boardDto = BoardDto.builder()
+                        .seq(list.getSeq())
+                        .title(list.getTitle())
+                        .content(list.getContent())
+                        .writer(list.getWriter())
+                        .cDate(list.getCDate())
+                        .build();
+
+                qnaList.add(boardDto);
+            }else if (list.getBType().equals("B03")) {
+                BoardDto boardDto = BoardDto.builder()
+                        .seq(list.getSeq())
+                        .title(list.getTitle())
+                        .content(list.getContent())
+                        .writer(list.getWriter())
+                        .cDate(list.getCDate())
+                        .build();
+
+                boardList.add(boardDto);
+            }
         }
-        System.out.println("boardList " + boardList);
 
-        List<BoardDto> boardDtoList = new ArrayList<>();
-        for ( BoardDto boardDto : boardList) {
-            BoardDto boardDTO = BoardDto.builder()
-                    .seq(boardDto.getSeq())
-                    .title(boardDto.getTitle())
-                    .content(boardDto.getContent())
-                    .writer(boardDto.getWriter())
-                    .cDate(boardDto.getCDate())
-                    .build();
+        List allList = new ArrayList();
+        allList.add(noticeList);
+        allList.add(qnaList);
+        allList.add(boardList);
 
-            boardDtoList.add(boardDTO);
-        }
-//
-//        JSONArray jsonArray = new JSONArray();
-//        for (int i = 0; i < boardDtoList.size(); i++) {
-//
-//            JSONObject data = new JSONObject();
-//            data.put("groupId", boardDtoList.get(i).getGroupId());
-//            data.put("seq", boardDtoList.get(i).getSeq());
-//            data.put("writer", boardDtoList.get(i).getWriter());
-//            data.put("title", boardDtoList.get(i).getTitle());
-//            data.put("content", boardDtoList.get(i).getContent());
-//            data.put("cDate", boardDtoList.get(i).getCDate());
-//            data.put("uDate", boardDtoList.get(i).getUdate());
-//            jsonArray.add(i, data);
-//        }
-
-        return boardList;
+        return allList;
     }
 
-//    @Transactional
-//    public void savePost(BoardDto boardDto) {
-//        boardMapper.insertBoard(boardDto);
-//    }
-//
+    @Transactional
+    public void savePost(BoardDto boardDto) {
+        boardMapper.insertBoard(boardDto);
+    }
+
 //    @Transactional
 //    public void updatePost(BoardDto boardDto) {
 //        boardMapper.updateById(boardDto);

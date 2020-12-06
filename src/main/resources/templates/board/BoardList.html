@@ -27,7 +27,7 @@
             </div>
             <!-- slider Area End-->
 
-            <section class="project-area  section-padding30">
+            <section class="project-area" style="padding-top:10px;">
                 <div class="container">
                     <div class="project-heading mb-35">
                         <div class="row align-items-end">
@@ -45,7 +45,7 @@
                                     <!--Nav Button  -->
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <a class="nav-item nav-link" id="nav-notice-tab" data-toggle="tab" href="#nav-notice" role="tab" aria-controls="nav-profile" aria-selected="false">Notice</span>
+                                            <a class="nav-item nav-link" id="nav-notice-tab" data-toggle="tab" href="#nav-notice" role="tab" aria-controls="nav-profile" aria-selected="false">Notice</span></a>
                                             <a class="nav-item nav-link" id="nav-qna-tab" data-toggle="tab" href="#nav-qna" role="tab" aria-controls="nav-contact" aria-selected="false">Q&A</a>
                                             <a class="nav-item nav-link" id="nav-news-tab" data-toggle="tab" href="#nav-news" role="tab" aria-controls="nav-contact" aria-selected="false">News</a>
                                         </div>
@@ -60,7 +60,7 @@
                             <!-- Nav Card -->
                             <div class="tab-content active" id="tabContent">
                                 <!-- card ONE -->
-                                <div class="tab-pane fade show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
+                                <div class="tab-pane fade active show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
                                     <div class="project-caption">
                                         <div style="padding:10px 10px 10px 10px;">
                                             <div class="section-top-border">
@@ -85,7 +85,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +116,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
+                                                    <div style="padding-top:10px;"><a th:href="@{/write(bType='B02')}" class="genric-btn success-border float-right">글쓰기</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -150,7 +149,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div style="padding-top:10px;"><a th:href="@{/post}" class="genric-btn success-border float-right">글쓰기</a></div>
+                                                    <div style="padding-top:10px;"><a th:href="@{/write(bType='B03')}" class="genric-btn success-border float-right">글쓰기</a></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,9 +168,8 @@
 
     <script>
         $(document).ready(function () {
-
-            $('#nav-notice-tab').addclass("active")
-            $('#nav-notice').addclass("active")
+            //페이지 최초 로딩시 Notice Tab 선택
+            $('#nav-notice-tab').trigger("click");
         });
     </script>
 

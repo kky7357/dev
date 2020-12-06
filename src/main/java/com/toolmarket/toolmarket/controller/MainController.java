@@ -25,7 +25,10 @@ public class MainController {
         return "layout/contact";
     }
 
-
+    @GetMapping("/elements")
+    public String elements() {
+        return "layout/elements";
+    }
 
 
 

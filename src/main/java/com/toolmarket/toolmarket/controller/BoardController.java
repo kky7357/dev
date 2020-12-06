@@ -8,65 +8,52 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @AllArgsConstructor
 public class BoardController {
 
     private BoardService boardService;
-
-
     //리스트
 
 
     @GetMapping("/board")
-    public String board(@RequestParam(required = false) String type, Model model) {
-//        List<BoardDto> boardList = boardService.getBoardlist(type);
-        model.addAttribute("noticeList",boardService.getBoardlist("A01"));
-        model.addAttribute("qnaList",boardService.getBoardlist("A02"));
-        model.addAttribute("boardList",boardService.getBoardlist("A03"));
+    public String board(Model model) {
+
+        List<BoardDto> allList = new ArrayList<>();
+        allList = boardService.getBoardlist();
+
+        System.out.println("controller : " + allList);
+
+        model.addAttribute("noticeList",allList.get(0));
+        model.addAttribute("qnaList",allList.get(1));
+        model.addAttribute("boardList",allList.get(2));
+
         return "board/BoardList";
     }
 
-//    @GetMapping("/boardList")
-//    public ModelAndView boardList() {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("board/BoardList");
-//        return modelAndView;
-//    }
+    //글쓰기폼
+    @GetMapping("/write")
+    public String write(String bType, Model model) {
+        System.out.println("bType : " + bType);
 
-//    @GetMapping("/getList")
-//    public List<BoardDto> getList(String groupId) {
-//
-//        List<BoardDto> boardList = boardService.getBoardlist(groupId);
-//
-//
-//
-//        System.out.println("test : "+ boardList);
-//        return boardList;
-//    }
+        model.addAttribute("bType", bType);
+        return "board/BoardWrite";
+    }
 
-//    //글쓰기폼
-//    @GetMapping("/post")
-//    public ModelAndView write() {
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("board/write");
-//
-//        return modelAndView;
-//    }
-//
-//    //글쓰기
-//    @PostMapping("/post")
-//    public ModelAndView write(BoardDto boardDto) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        boardService.savePost(boardDto);
-//
-//        modelAndView.setViewName("redirect:/list");
-//        return modelAndView;
-//    }
-//
+    //글쓰기
+    @PostMapping("/post")
+    public String write(BoardDto boardDto) {
+        System.out.println("write action : " + boardDto);
+        boardService.savePost(boardDto);
+
+        return "redirect:/board";
+    }
+
 //    @GetMapping("/post/{no}")
 //    public ModelAndView detail(@PathVariable("groupId")Long groupId, @PathVariable("no") Long no, Model model) {
 //        ModelAndView modelAndView = new ModelAndView();

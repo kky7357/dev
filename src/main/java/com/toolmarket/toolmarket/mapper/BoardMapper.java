@@ -9,12 +9,10 @@ import java.util.Map;
 @Mapper
 public interface BoardMapper {
 //    BoardDto selectById(long groupId, long seq);
-    List<BoardDto> selectAllNotice();
-    List<BoardDto> selectAllBoard();
-    List<BoardDto> selectAllQna();
+    List<BoardDto> selectAll();
 
+    void insertBoard(BoardDto boardDto);
 
-//    void insertBoard(BoardDto boardDto);
 //    void updateById(BoardDto boardDto);
 //    void deleteById(long seq);
 }
