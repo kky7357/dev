@@ -1,6 +1,7 @@
 package com.toolmarket.toolmarket.controller;
 
 import com.toolmarket.toolmarket.dto.BoardDto;
+import com.toolmarket.toolmarket.dto.CategoryDto;
 import com.toolmarket.toolmarket.dto.ProductDto;
 import com.toolmarket.toolmarket.service.ProductService;
 import lombok.AllArgsConstructor;
@@ -17,32 +18,42 @@ public class ProductController {
     private ProductService productService;
 
 
+    @GetMapping("/category")
+    public ModelAndView category() {
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/product/Category");
+
+        List<CategoryDto> categoryList = productService.getCategory();
+
+        modelAndView.addObject("categoryList",categoryList);
+        return modelAndView;
+    }
 
     //리스트
     @GetMapping("/product")
-    public ModelAndView list(@RequestParam(required = false) String type) {
-
+    public ModelAndView list(String cId) {
+        System.out.println("cId : " + cId);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/product/ProductList");
+        modelAndView.setViewName("/product/Product");
 
-        List<ProductDto> prodList = productService.getProductList(type);
+        List<ProductDto> prodList = productService.getProductList(cId);
 
         modelAndView.addObject("prodList",prodList);
         return modelAndView;
     }
 
+    @GetMapping("/detail")
+    public ModelAndView detail(Long pId, Model model) {
+        System.out.println("pId: " + pId);
+        ModelAndView modelAndView = new ModelAndView();
+        ProductDto productDto = productService.getProduct(pId);
 
-//
-//    @GetMapping("/detail/{no}")
-//    public ModelAndView detail(@PathVariable("no") Long no, Model model) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        ProductDto productDto = productService.getProduct(no);
-//
-//        model.addAttribute("productDto", productDto);
-//        modelAndView.setViewName("product/ProductDetail");
-//        return modelAndView;
-//    }
-//
+        model.addAttribute("productDto", productDto);
+        modelAndView.setViewName("/product/Detail");
+        return modelAndView;
+    }
+
 //    @GetMapping("/post/edit/{no}")
 //    public ModelAndView edit(@PathVariable("no") Long no, Model model) {
 //        ModelAndView modelAndView = new ModelAndView();

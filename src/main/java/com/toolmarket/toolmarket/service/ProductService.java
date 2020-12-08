@@ -1,5 +1,6 @@
 package com.toolmarket.toolmarket.service;
 
+import com.toolmarket.toolmarket.dto.CategoryDto;
 import com.toolmarket.toolmarket.dto.ProductDto;
 import com.toolmarket.toolmarket.mapper.ProductMapper;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,24 @@ import java.util.List;
 @Service
 public class ProductService {
     private ProductMapper productMapper;
+
+    @Transactional
+    public List<CategoryDto> getCategory() {
+        List<CategoryDto> categoryDtos = productMapper.selectAllcategory();
+        List<CategoryDto> categoryDtoList = new ArrayList<>();
+        for (CategoryDto categoryDto : categoryDtos) {
+            CategoryDto categoryDTO = CategoryDto.builder()
+                    .cId(categoryDto.getCId())
+                    .cName(categoryDto.getCName())
+                    .cImage(categoryDto.getCImage())
+                    .build();
+
+            categoryDtoList.add(categoryDTO);
+            System.out.println("categoryDtoList : " + categoryDtoList);
+        }
+        return categoryDtoList;
+    }
+
 
     @Transactional
     public List<ProductDto> getProductList(String type) {
@@ -31,12 +50,12 @@ public class ProductService {
         return productDtoList;
     }
 
-//    @Transactional
-//    public ProductDto getProduct(Long cId) {
-//        ProductDto productDto = productMapper.selectById(cId);
-//        return productDto;
-//    }
-//
+    @Transactional
+    public ProductDto getProduct(Long pId) {
+        ProductDto productDto = productMapper.selectById(pId);
+        return productDto;
+    }
+
 //    @Transactional
 //    public void savePost(BoardDto boardDto) {
 //        boardMapper.insertBoard(boardDto);

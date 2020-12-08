@@ -5,6 +5,10 @@
 
 <mapper namespace="com.toolmarket.toolmarket.mapper.ProductMapper">
 
+    <select id="selectAllcategory" resultType="com.toolmarket.toolmarket.dto.CategoryDto">
+        SELECT * FROM CATEGORY
+    </select>
+
     <select id="selectProductByCategory" resultType="com.toolmarket.toolmarket.dto.ProductDto">
         SELECT PID
         ,PNAME
@@ -13,16 +17,13 @@
         WHERE CID = #{type}
     </select>
 
-<!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->
-<!--        SELECT cName-->
-<!--        ,pId-->
-<!--        ,pName-->
-<!--        ,pSpec-->
-<!--        ,pDesc-->
-<!--        ,pPrice-->
-<!--        FROM product-->
-<!--        WHERE ID= #{pId}-->
-<!--    </select>-->
+    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.ProductDto">
+        SELECT pId
+        ,pName
+        ,pImage
+        FROM PRODUCT
+        WHERE PID= #{pId}
+    </select>
 
 <!--    <delete  id="deleteById">-->
 <!--        DELETE FROM board WHERE ID=#{id}-->

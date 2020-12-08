@@ -30,8 +30,4 @@ public class MainController {
         return "layout/elements";
     }
 
-
-
-
-
 }

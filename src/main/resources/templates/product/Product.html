@@ -12,11 +12,11 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap pt-100">
-                            <h2>Product Category</h2>
+                            <h2>Product</h2>
                             <nav aria-label="breadcrumb ">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="prodList">Category</a></li>
+                                    <li class="breadcrumb-item"><a href="product">Product</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -35,9 +35,9 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle section-tittle3">
                             <div class="front-text">
-                                <h2 class="">category</h2>
+                                <h2 class="">Product</h2>
                             </div>
-                            <span class="back-text">category</span>
+                            <span class="back-text">Product</span>
                         </div>
                     </div>
                 </div>
@@ -51,15 +51,17 @@
                             <div class="project-caption">
                                 <!-- Start Loop-->
                                 <div class="row">
-                                    <div th:each="category : ${categoryList}" class="col-lg-4 col-md-6">
-                                        <div class="single-project mb-30">
-                                            <div class="project-img">
-                                                <img hright="280" width="180" th:src="${category.cImage}" alt="">
+                                    <div th:each="product : ${prodList}" class="col-xl-4 col-lg-4 col-md-6">
+                                        <div class="single-service-cap mb-30">
+                                            <div class="service-img">
+                                                <img th:src="${product.pImage}" alt="">
                                             </div>
-                                            <div class="project-cap">
-                                                <a th:href="@{/product(cId=${category.cId})}" class="plus-btn"><i class="ti-plus"></i></a>
-                                                <h4><a th:href="@{/product(cId=${category.cId})}"><span th:text="${category.cName}"></span></a></h4>
-                                                <h4><a th:href="@{/product(cId=${category.cId})}">Factory</a></h4>
+                                            <div class="service-cap">
+                                                <h4><a th:href="@{/detail(pId=${product.pId})}"><span th:text="${product.pName}"></a></h4>
+                                                <a th:href="@{/detail(pId=${product.pId})}" class="more-btn">Read More <i class="ti-plus"></i></a>
+                                            </div>
+                                            <div class="service-icon">
+                                                <img src="assets/img/icon/services_icon1.png" alt="">
                                             </div>
                                         </div>
                                     </div>
