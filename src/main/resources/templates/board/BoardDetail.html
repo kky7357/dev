@@ -1,36 +1,216 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h2 th:text="${boardDto.title}"></h2>-->
+<!--<p th:inline="text">작성일 : [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>-->
+
+<!--<p th:text="${boardDto.content}"></p>-->
+
+<!--&lt;!&ndash; 수정/삭제 &ndash;&gt;-->
+
+
+<!--&lt;!&ndash; 변수 셋팅 &ndash;&gt;-->
+<!--<script th:inline="javascript">-->
+
+<!--</script>-->
+
+<!--&lt;!&ndash; script &ndash;&gt;-->
+<!--<script th:inline="javascript" th:src="@{/js/board.js}"></script>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
 
-<h2 th:text="${boardDto.title}"></h2>
-<p th:inline="text">작성일 : [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>
+<th:block layout:fragment="content">
 
-<p th:text="${boardDto.content}"></p>
+    <!-- slider Area Start-->
+    <div class="slider-area ">
+        <div class="single-slider hero-overly slider-height2 d-flex align-items-center"
+             data-background="assets/img/hero/about.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="hero-cap pt-100">
+                            <h2>Contact</h2>
+                            <nav aria-label="breadcrumb ">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Write</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slider Area End-->
+    <!-- ================ contact section start ================= -->
+    <section class="contact-section">
+        <div class="container">
 
-<!-- 수정/삭제 -->
-<div>
-    <a th:href="@{'/post/edit/' + ${boardDto.id}}">
-        <button>수정</button>
-    </a>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="contact-title">Write to Board</h2>
+                </div>
+                <div class="col-lg-8">
+                    <form class="form-contact contact_form" th:action="@{/post}" method="post" id="writeForm";
+                          novalidate="novalidate">
+                        <div class="row">
+                            <div>
+                                <div class="form-group">
+                                    <input th:value="${bType}" name="bType" id="bType" type="text" hidden></input>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control valid" name="writer" id="name" type="text"
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
+                                           placeholder="Enter your name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="email" type="email"
+                                           onfocus="this.placeholder = ''"
+                                           onblur="this.placeholder = 'Enter email address'"
+                                           placeholder="Enter email address">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input class="form-control" name="title" id="subject" type="text"
+                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
+                                           placeholder="Enter Subject">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control w-100" name="content" id="message" cols="30" rows="9"
+                                              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"
+                                              placeholder=" Enter Message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="submit" class="button button-contactForm boxed-btn" value="작성" />
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>Buttonwood, California.</h3>
+                            <p>Rosemead, CA 91770</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>+1 253 565 2365</h3>
+                            <p>Mon to Fri 9am to 6pm</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3>support@colorlib.com</h3>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a th:href="@{'/post/edit/' + ${boardDto.id}}">
+                <button>수정</button>
+            </a>
 
-    <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
-        <input type="hidden" name="_method" value="delete"/>
-        <button id="delete-btn">삭제</button>
-    </form>
-</div>
+            <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
+                <input type="hidden" name="_method" value="delete"/>
+                <button id="delete-btn">삭제</button>
+            </form>
+        </div>
+    </section>
+    <!-- ================ contact section end ================= -->
+</th:block>
+<th:block layout:fragment="pageScript">
 
-<!-- 변수 셋팅 -->
-<script th:inline="javascript">
-    /*<![CDATA[*/
-    var boardDto = /*[[${boardDto}]]*/ "";
-    /*]]>*/
-</script>
+    <script>
+        $(document).ready(function () {
 
-<!-- script -->
-<script th:inline="javascript" th:src="@{/js/board.js}"></script>
-</body>
+            (function ($) {
+                "use strict";
+
+
+                jQuery.validator.addMethod('answercheck', function (value, element) {
+                    return this.optional(element) || /^\bcat\b$/.test(value)
+                }, "type the correct answer -_-");
+
+                // validate writeForm form
+                $(function () {
+                    $('#writeForm').validate({
+                        rules: {
+                            name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            subject: {
+                                required: true,
+                                minlength: 4
+                            },
+                            number: {
+                                required: true,
+                                minlength: 5
+                            },
+                            email: {
+                                required: false,
+                                email: true
+                            },
+                            message: {
+                                required: true,
+                                minlength: 20
+                            }
+                        },
+                        messages: {
+                            name: {
+                                required: "이름이나 닉네임을 입력 바랍니다.",
+                                minlength: "최소 2자 이상 입력 바랍니다."
+                            },
+                            subject: {
+                                required: "제목을 입력 바랍니다.",
+                                minlength: "최소 4자 이상 입력 바랍니다."
+                            },
+                            number: {
+                                required: "come on, you have a number, don't you?",
+                                minlength: "your Number must consist of at least 5 characters"
+                            },
+                            email: {
+                                required: "답변 받으실 E-Mail을 입력 바랍니다."
+                            },
+                            message: {
+                                required: "필수 항목이 입력되지 않았습니다. 작성 내용을 확인 바랍니다."
+                            }
+                        }
+                    })
+                })
+
+            })(jQuery)
+        })
+
+        /*<![CDATA[*/
+        var boardDto = /*[[${boardDto}]]*/ "";
+        /*]]>*/
+    </script>
+
+</th:block>
+
 </html>
