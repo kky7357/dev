@@ -17,7 +17,6 @@ public class ProductController {
 
     private ProductService productService;
 
-
     @GetMapping("/category")
     public ModelAndView category() {
 
