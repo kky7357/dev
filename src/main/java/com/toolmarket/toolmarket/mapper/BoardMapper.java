@@ -8,11 +8,12 @@ import java.util.Map;
 
 @Mapper
 public interface BoardMapper {
-//    BoardDto selectById(long groupId, long seq);
+    BoardDto selectById(long seq);
     List<BoardDto> selectAll();
 
     void insertBoard(BoardDto boardDto);
 
-//    void updateById(BoardDto boardDto);
+    void updateById(BoardDto boardDto);
+
 //    void deleteById(long seq);
 }

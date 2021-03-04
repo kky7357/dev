@@ -18,7 +18,6 @@ public class BoardService {
     public List getBoardlist() {
         List<BoardDto> allBoardList = new ArrayList<>();
         allBoardList = boardMapper.selectAll();
-        System.out.println("service " + allBoardList);
 
         List<BoardDto> noticeList = new ArrayList<>();
         List<BoardDto> qnaList = new ArrayList<>();
@@ -71,15 +70,16 @@ public class BoardService {
         boardMapper.insertBoard(boardDto);
     }
 
-//    @Transactional
-//    public void updatePost(BoardDto boardDto) {
-//        boardMapper.updateById(boardDto);
-//    }
-//    @Transactional
-//    public BoardDto getPost(Long groupId, Long id) {
-//        BoardDto boardDto = boardMapper.selectById(groupId, id);
-//        return boardDto;
-//    }
+    @Transactional
+    public void updateBoard(BoardDto boardDto) {
+        boardMapper.updateById(boardDto);
+    }
+
+    @Transactional
+    public BoardDto getBoardDetail(Long seq) {
+        BoardDto boardDto = boardMapper.selectById(seq);
+        return boardDto;
+    }
 //
 //    @Transactional
 //    public void deletePost(Long id) {

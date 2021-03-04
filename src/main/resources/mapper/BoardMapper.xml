@@ -9,17 +9,23 @@
             SELECT * FROM BOARD
     </select>
 
-<!--    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">-->
-<!--        SELECT group_id-->
-<!--        ,SEQ-->
-<!--        ,title-->
-<!--        ,content-->
-<!--        ,writer-->
-<!--        ,cdate-->
-<!--        ,udate-->
-<!--        FROM board-->
-<!--        WHERE SEQ= #{id} AND group_id = #{groupId}-->
-<!--    </select>-->
+    <select id="selectById" resultType="com.toolmarket.toolmarket.dto.BoardDto">
+         SELECT
+            a.SEQ
+            ,a.BTYPE
+            ,b.BNAME
+            ,a.TITLE
+            ,a.WRITER
+            ,a.CONTENT
+            ,a.EMAIL
+            ,a.CDATE
+            ,a.UDATE
+            ,a.HIT
+        FROM BOARD a
+        JOIN BOARDGROUP b
+        ON a.BTYPE = b.BID
+        WHERE a.SEQ = #{seq}
+    </select>
 
 <!--    <delete  id="deleteById">-->
 <!--        DELETE FROM board WHERE ID=#{id} and group_id=#{groupId}-->
@@ -39,8 +45,17 @@
         )
     </insert>
 
-<!--    <update id="updateById">-->
-<!--        UPDATE board SET groupId=#{groupId},title=#{title},content=#{content},writer=#{writer},udate=NOW() where id=#{id} and group_id=#{groupId}-->
+    <update id="updateById">
+        UPDATE
+            BOARD
+                SET
+                    TITLE = #{title}
+                    ,EMAIL = #{email}
+                    ,CONTENT = #{content}
+                    ,WRITER = #{writer}
+                    ,UDATE =NOW()
+        WHERE
+                SEQ = #{seq}
 
-<!--    </update>-->
+    </update>
 </mapper>

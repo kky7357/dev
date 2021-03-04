@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 public class BoardDto {
     private Long seq;
     private String bType;
+    private String bName;
     private String title;
     private String writer;
     private String content;
@@ -19,9 +20,10 @@ public class BoardDto {
     private LocalDateTime uDate;
 
     @Builder
-    public BoardDto( Long seq, String bType, String title, String content, String writer, String email, LocalDateTime cDate, LocalDateTime uDate) {
+    public BoardDto( Long seq, String bType, String bName, String title, String content, String writer, String email, LocalDateTime cDate, LocalDateTime uDate) {
         this.seq = seq;
         this.bType = bType;
+        this.bName = bName;
         this.writer = writer;
         this.title = title;
         this.content = content;

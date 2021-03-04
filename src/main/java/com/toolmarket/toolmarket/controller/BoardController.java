@@ -22,12 +22,10 @@ public class BoardController {
 
 
     @GetMapping("/board")
-    public String board(Model model) {
+    public String boardList(Model model) {
 
         List<BoardDto> allList = new ArrayList<>();
         allList = boardService.getBoardlist();
-
-        System.out.println("controller : " + allList);
 
         model.addAttribute("noticeList",allList.get(0));
         model.addAttribute("qnaList",allList.get(1));
@@ -39,8 +37,6 @@ public class BoardController {
     //글쓰기폼
     @GetMapping("/write")
     public String write(String bType, Model model) {
-        System.out.println("bType : " + bType);
-
         model.addAttribute("bType", bType);
         return "board/BoardWrite";
     }
@@ -48,31 +44,34 @@ public class BoardController {
     //글쓰기
     @PostMapping("/post")
     public String write(BoardDto boardDto) {
-        System.out.println("write action : " + boardDto);
         boardService.savePost(boardDto);
 
         return "redirect:/board";
     }
 
-//    @GetMapping("/post/{no}")
-//    public ModelAndView detail(@PathVariable("groupId")Long groupId, @PathVariable("no") Long no, Model model) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        BoardDto boardDTO = boardService.getPost(groupId, no);
-//
-//        model.addAttribute("boardDto", boardDTO);
-//        modelAndView.setViewName("board/detail");
-//        return modelAndView;
-//    }
-//
-//    @GetMapping("/post/edit/{no}")
-//    public ModelAndView edit(@PathVariable("groupId") Long groupId, @PathVariable("no") Long no, Model model) {
-//        ModelAndView modelAndView = new ModelAndView();
-//        BoardDto boardDTO = boardService.getPost(groupId,no);
-//
-//        model.addAttribute("boardDto", boardDTO);
-//        modelAndView.setViewName("board/update");
-//        return modelAndView;
-//    }
+    @GetMapping("/boardDetail")
+    public String boardDetail(Long seq, Model model) {
+        BoardDto boardDTO = boardService.getBoardDetail(seq);
+
+        model.addAttribute("boardDto", boardDTO);
+        return "board/BoardDetail";
+    }
+
+    @GetMapping("/boardUpdate")
+    public String boardUpdate(Long seq, Model model) {
+        BoardDto boardDTO = boardService.getBoardDetail(seq);
+        System.out.println("boardDTO " + boardDTO);
+
+        model.addAttribute("boardDto", boardDTO);
+        return "board/BoardUpdate";
+    }
+
+    @PostMapping("/updatePost")
+    public String edit(BoardDto boardDto){
+        System.out.println("edit "+ boardDto);
+        boardService.updateBoard(boardDto);
+        return "redirect:/board";
+    }
 //
 //    @PostMapping("/post/edit/{no}")
 //    public ModelAndView update(BoardDto boardDTO) {

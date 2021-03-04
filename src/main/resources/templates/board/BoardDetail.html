@@ -1,28 +1,20 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form  action="/post" method="post">
+        제목 : <input type="text" name="title"> <br>
+        작성자 : <input type="text" name="writer"> <br>
+        <textarea name="content"></textarea><br>
 
-<!--<h2 th:text="${boardDto.title}"></h2>-->
-<!--<p th:inline="text">작성일 : [[${#temporals.format(boardDto.createdDate, 'yyyy-MM-dd HH:mm')}]]</p>-->
-
-<!--<p th:text="${boardDto.content}"></p>-->
-
-<!--&lt;!&ndash; 수정/삭제 &ndash;&gt;-->
-
-
-<!--&lt;!&ndash; 변수 셋팅 &ndash;&gt;-->
-<!--<script th:inline="javascript">-->
-
-<!--</script>-->
-
-<!--&lt;!&ndash; script &ndash;&gt;-->
-<!--<script th:inline="javascript" th:src="@{/js/board.js}"></script>-->
-<!--</body>-->
-<!--</html>-->
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>
+ -->
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
@@ -58,12 +50,17 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h2 class="contact-title">Write to Board</h2>
+                    <h2 class="contact-title">board detail</h2>
                 </div>
                 <div class="col-lg-8">
                     <form class="form-contact contact_form" th:action="@{/post}" method="post" id="writeForm";
                           novalidate="novalidate">
                         <div class="row">
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <span th:text="${boardDto.title}" class="form-control" type="text"></span>
+                                </div>
+                            </div>
                             <div>
                                 <div class="form-group">
                                     <input th:value="${bType}" name="bType" id="bType" type="text" hidden></input>
@@ -71,36 +68,27 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control valid" name="writer" id="name" type="text"
-                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'"
-                                           placeholder="Enter your name">
+                                    <span th:text="${boardDto.email}" class="form-control" type="email" ></span>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <input class="form-control" name="email" id="email" type="email"
-                                           onfocus="this.placeholder = ''"
-                                           onblur="this.placeholder = 'Enter email address'"
-                                           placeholder="Enter email address">
+                                    <h4><span th:text="${boardDto.writer}" class="form-control" type="text"/></h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <h4><span th:text="${boardDto.bName}" class="form-control" type="text"/></h4>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="title" id="subject" type="text"
-                                           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'"
-                                           placeholder="Enter Subject">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <textarea class="form-control w-100" name="content" id="message" cols="30" rows="9"
-                                              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"
-                                              placeholder=" Enter Message"></textarea>
+                                    <textarea  th:text="${boardDto.content}" class="form-control w-100" cols="30" rows="9" readonly></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="submit" class="button button-contactForm boxed-btn" value="작성" />
+                            <div style="padding-top:10px;"><a th:href="@{/boardUpdate(seq=${boardDto.seq})}" class="genric-btn success-border float-right">수정</a></div>
                         </div>
                     </form>
                 </div>
@@ -129,87 +117,10 @@
                 </div>
             </div>
         </div>
-        <div>
-            <a th:href="@{'/post/edit/' + ${boardDto.id}}">
-                <button>수정</button>
-            </a>
-
-            <form id="delete-form" th:action="@{'/post/' + ${boardDto.id}}" method="post">
-                <input type="hidden" name="_method" value="delete"/>
-                <button id="delete-btn">삭제</button>
-            </form>
-        </div>
     </section>
     <!-- ================ contact section end ================= -->
 </th:block>
 <th:block layout:fragment="pageScript">
-
-    <script>
-        $(document).ready(function () {
-
-            (function ($) {
-                "use strict";
-
-
-                jQuery.validator.addMethod('answercheck', function (value, element) {
-                    return this.optional(element) || /^\bcat\b$/.test(value)
-                }, "type the correct answer -_-");
-
-                // validate writeForm form
-                $(function () {
-                    $('#writeForm').validate({
-                        rules: {
-                            name: {
-                                required: true,
-                                minlength: 2
-                            },
-                            subject: {
-                                required: true,
-                                minlength: 4
-                            },
-                            number: {
-                                required: true,
-                                minlength: 5
-                            },
-                            email: {
-                                required: false,
-                                email: true
-                            },
-                            message: {
-                                required: true,
-                                minlength: 20
-                            }
-                        },
-                        messages: {
-                            name: {
-                                required: "이름이나 닉네임을 입력 바랍니다.",
-                                minlength: "최소 2자 이상 입력 바랍니다."
-                            },
-                            subject: {
-                                required: "제목을 입력 바랍니다.",
-                                minlength: "최소 4자 이상 입력 바랍니다."
-                            },
-                            number: {
-                                required: "come on, you have a number, don't you?",
-                                minlength: "your Number must consist of at least 5 characters"
-                            },
-                            email: {
-                                required: "답변 받으실 E-Mail을 입력 바랍니다."
-                            },
-                            message: {
-                                required: "필수 항목이 입력되지 않았습니다. 작성 내용을 확인 바랍니다."
-                            }
-                        }
-                    })
-                })
-
-            })(jQuery)
-        })
-
-        /*<![CDATA[*/
-        var boardDto = /*[[${boardDto}]]*/ "";
-        /*]]>*/
-    </script>
 
 </th:block>
 

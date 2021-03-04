@@ -12,11 +12,11 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="hero-cap pt-100">
-                                    <h2>Contact</h2>
+                                    <h2>Board</h2>
                                     <nav aria-label="breadcrumb ">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                            <li class="breadcrumb-item"><a href="#">Contact</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Board</a></li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -34,9 +34,9 @@
                             <div class="col-lg-6">
                                 <!-- Section Tittle -->
                                 <div class="section-tittle section-tittle3">
-                                    <div class="front-text">
-                                        <h2 class="">CONTACT</h2>
-                                    </div>
+                                    <!--<div class="front-text">
+                                        <h2 class="">BOARD</h2>
+                                    </div>-->
         <!--                            <span class="back-text">Gallary</span>-->
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                 <div class="tab-pane fade active show" id="nav-notice" role="tabpanel" aria-labelledby="nav-notice-tab">
                                     <div class="project-caption">
                                         <div style="padding:10px 10px 10px 10px;">
-                                            <div class="section-top-border">
+                                            <div class="section-top-border" style="padding-top:25px;">
                                                 <h3 class="mb-30">Notice</h3>
                                                 <div class="progress-table-wrap">
                                                     <div class="progress-table">
@@ -75,9 +75,11 @@
                                                         </div>
                                                         <div th:each="notice : ${noticeList}" class="table-row">
                                                             <div class="serial"><span th:text="${notice.seq}"></span></div>
-                                                            <div class="country"><a th:href="@{'/post/' + ${notice.seq}}">
-                                                                <span th:text="${notice.title}"></span>
-                                                            </a></div>
+                                                            <div class="country">
+                                                                <a th:href="@{/boardDetail(seq=${notice.seq})}">
+                                                                    <span th:text="${notice.title}"></span>
+                                                                </a>
+                                                            </div>
                                                             <div class="visit"><span th:text="${notice.writer}"></span></div>
                                                             <div class="percentage">
                                                                 <span th:text="${#temporals.format(notice.cDate, 'yyyy-MM-dd HH:mm')}"></span>
@@ -166,13 +168,13 @@
     </th:block>
     <th:block layout:fragment="pageScript">
 
-    <script>
-        $(document).ready(function () {
-            //페이지 최초 로딩시 Notice Tab 선택
-            $('#nav-notice-tab').trigger("click");
-        });
-    </script>
+        <script>
+            $(document).ready(function () {
+                //페이지 최초 로딩시 Notice Tab 선택
+                $('#nav-notice-tab').trigger("click");
+            });
+        </script>
 
-</th:block>
+    </th:block>
 
 </html>
