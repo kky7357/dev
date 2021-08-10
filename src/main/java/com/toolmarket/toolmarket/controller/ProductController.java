@@ -18,8 +18,19 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/category")
-    public ModelAndView category() {
+    public ModelAndView category(String data) {
+        System.out.println("test" + data);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/product/Category");
 
+        List<CategoryDto> categoryList = productService.getCategory();
+
+        modelAndView.addObject("categoryList",categoryList);
+        return modelAndView;
+    }
+    @GetMapping("/category")
+    public ModelAndView getItem(String data) {
+        System.out.println("test" + data);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/product/Category");
 

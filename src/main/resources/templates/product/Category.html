@@ -4,6 +4,27 @@
       layout:decorator="layout/default">
 
     <th:block layout:fragment="content">
+
+<script>
+function onclickmenu(e) {
+    console.log(e, "test");
+
+        $.ajax({
+        type:"GET",
+        data: {"data": 'test'},
+        url:"/category",
+        success: function(data){
+            console.log("data", data)
+            console.log("data", data.categoryList)
+            
+        },
+        error: function(xhr, status, error) {
+            alert(error);
+        }  
+    });
+}
+
+</script>
 <main>
     <!-- slider Area Start-->
     <div class="slider-area">
@@ -44,12 +65,53 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <!-- Nav Card -->
+                    <div class="row">
+                        <div class="col-3">
+                          <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="javacsript:void(0);" onclick="onclickmenu('home')" role="tab" aria-controls="list-home">Home</a>
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" th:href="@{/category(data='Profile')}" role="tab" aria-controls="list-profile">Profile</a>
+                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list"  role="tab" aria-controls="list-messages">Messages</a>
+                            <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list"  role="tab" aria-controls="list-settings">Settings</a>
+                          </div>
+                        </div>
+                        <div class="col-9">
+                          <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                                <div class="tab-content active" id="nav-tabContent">
+                                    <!-- card ONE -->
+                                    <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <div class="project-caption">
+                                            <!-- Start Loop-->
+                                            <div class="row">
+                                                <div th:each="category : ${categoryList}" class="col-lg-4 col-md-6">
+                                                    <div class="single-project mb-30">
+                                                        <div class="project-img">
+                                                            <img hright="280" width="180" th:src="${category.cImage}" alt="">
+                                                        </div>
+                                                        <div class="project-cap">
+                                                            <a th:href="@{/product(cId=${category.cId})}" class="plus-btn"><i class="ti-plus"></i></a>
+                                                            <h4><a th:href="@{/product(cId=${category.cId})}"><span th:text="${category.cName}"></span></a></h4>
+                                                            <h4><a th:href="@{/product(cId=${category.cId})}">Factory</a></h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Loop -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+                            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+                            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-9">
                     <div class="tab-content active" id="nav-tabContent">
-                        <!-- card ONE -->
                         <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="project-caption">
-                                <!-- Start Loop-->
                                 <div class="row">
                                     <div th:each="category : ${categoryList}" class="col-lg-4 col-md-6">
                                         <div class="single-project mb-30">
@@ -64,12 +126,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End Loop -->
                             </div>
                         </div>
                     </div>
-                    <!-- End Nav Card -->
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
